@@ -28,12 +28,13 @@ class SystemEventLog extends CApplicationComponent {
             "Event" => $event,
             "Value" => $value,
             "IPAddress" => $ipAddress,
-            "ProjectId" => Yii::app()->user->project->Id
+            "ProjectId" => Yii::app()->user->project->Id,
+            "UserId" => Yii::app()->user->getId()
         );
 
         $model->save();
     }
-    
+
     public function getModel() {
         return SystemEventLogModel::model();
     }
@@ -65,8 +66,8 @@ class SystemEventLogModel extends CActiveRecord {
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('Event, ProjectId', 'required'),
-            array('Event', 'length', 'max' => 32),
+            array('Event, ProjectId,UserId', 'required'),
+            array('Event', 'length', 'max' => 255),
             array('IPAddress', 'length', 'max' => 15),
             array('Value, IPAddress, Event, DateCreated', 'safe'),
             // The following rule is used by search().
@@ -116,6 +117,9 @@ class SystemEventLogModel extends CActiveRecord {
 
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
+            'sort' => array(
+                'defaultOrder' => "DateCreated DESC"
+            )
         ));
     }
 

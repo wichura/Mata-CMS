@@ -61,9 +61,3 @@
     </div>
 
 </div>
-
-<script>
-    setTimeout(function() {
-        document.getElementById("touchstone").style.display = "none"
-    }, 3000)
-</script>

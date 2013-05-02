@@ -30,7 +30,11 @@
 <iframe frameborder="0" id='content-container'>
 </iframe>
 
-
+<?php
+$this->widget("application.modules.touchstone.widgets.touchstoneWidget.TouchstoneWidget", array(
+    "scenario" => "User module testing"
+));
+?>
 
 <script>
 
@@ -57,9 +61,9 @@
                         wrapper.append("<h2>Select Project</h2>");
                         wrapper.append(data)
                         $("body").append(wrapper);
-                        
-                        
-                        
+
+
+
 
                         $("#project-selector").transition({
                             padding: "20px",

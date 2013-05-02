@@ -21,7 +21,7 @@ class Date {
         if ($date < 0)
             return "";
         
-        return date('dS F Y \a\t H:i', $date);
+        return date('j\<\s\p\a\n\ \c\l\a\s\s\=\"\d\a\t\e\-\s\u\f\f\i\x\"\>S\<\/\s\p\a\n\> F Y \a\t H:i', $date);
     }
 }
 

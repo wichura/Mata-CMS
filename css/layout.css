@@ -1,4 +1,4 @@
-bhtml, body {
+html, body {
     height: 100%;
     background: #f5f5f5;
     min-height: 800px;
@@ -70,7 +70,7 @@ hr {
     width: 440px;
     margin: 10px 0;
     color: #FFF;
-    
+
 }
 
 .multioption-element {
@@ -356,4 +356,10 @@ img.avatar {
 
 .btn-small {
     font-size: 12px;
+}
+
+
+.date-suffix {
+    vertical-align:super;
+    font-size: smaller;
 }

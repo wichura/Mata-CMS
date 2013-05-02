@@ -14,8 +14,8 @@
 
         <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
         <script type="text/javascript" src="/js/lib/query.transit.min.js"></script>
-        
-        
+
+
         <script type="text/javascript" src="/js/behaviors/retinaImages.js"></script>
         <script type="text/javascript" src="/js/main.js"></script>
 
