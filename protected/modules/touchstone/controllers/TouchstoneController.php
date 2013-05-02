@@ -6,16 +6,15 @@
  */
 
 /**
- * Description of DashboardController
+ * Description of TouchstoneController
  *
  * @author wichura
  */
-class DashboardController extends BaseCMSController {
-   
+class TouchstoneController extends CController {
+    
     
     public function actionIndex() {
-        parent::actionIndex();
-        
+        echo 111;
     }
 }
 

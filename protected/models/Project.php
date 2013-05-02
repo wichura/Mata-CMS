@@ -43,6 +43,16 @@ class Project extends BaseActiveRecord {
     public function tableName() {
         return 'project';
     }
+    
+    public function defaultScope() {
+        return array( 
+             'with'=> array(
+                 "users" => array(
+                     "joinType" => "INNER JOIN"
+                 )
+             )
+        );
+    }
 
     /**
      * @return array validation rules for model attributes.

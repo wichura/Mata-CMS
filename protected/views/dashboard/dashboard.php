@@ -8,3 +8,4 @@ $this->widget('zii.widgets.CListView', array(
     "template" => "<div class='list-view standard-list'>{items}</div>",
     'itemView' => '_systemEventLogView',
 ));
+?>

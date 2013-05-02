@@ -19,14 +19,14 @@ class BaseWidget extends CWidget {
         parent::run();
     }
 
-    public function renderDefaultView($widgetFile, $data = array()) {
+    public function renderDefaultView($widgetFile, $data = array(), $basePath = "application.widgets") {
 
         $widgetLocation = dirname($widgetFile);
 
         $container = explode(DIRECTORY_SEPARATOR . "widgets" . DIRECTORY_SEPARATOR, $widgetLocation);
 
         $containerFolder = str_replace("/", ".", $container[1]);
-        $this->render("application.widgets." . $containerFolder . ".views." . lcfirst(basename($container[1])), $data);
+        $this->render($basePath . "." . $containerFolder . ".views." . lcfirst(basename($container[1])), $data);
     }
 
     public function renderStyleFile($cssFileName) {

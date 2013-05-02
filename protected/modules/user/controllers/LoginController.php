@@ -9,6 +9,8 @@ class LoginController extends CController {
      */
     public function actionLogin() {
         if (Yii::app()->user->isGuest) {
+
+            Yii::app()->getModule("touchstone")->addPoints("User module testing");
             $model = new UserLogin;
             // collect user input data
             if (isset($_POST['UserLogin'])) {

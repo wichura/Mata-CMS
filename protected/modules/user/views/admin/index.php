@@ -45,3 +45,8 @@ $this->widget('zii.widgets.CListView', array(
     "template" => "<div class='list-view standard-list'>{items}</div>",
     'itemView' => '_view',
 ));
+
+$this->widget("application.modules.touchstone.widgets.touchstoneWidget.TouchstoneWidget", array(
+    "scenario" => "User module testing"
+));
+?>

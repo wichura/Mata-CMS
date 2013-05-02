@@ -73,6 +73,7 @@ class AdminController extends BaseCMSController {
         $profile = new Profile;
         $this->performAjaxValidation(array($model, $profile));
         if (isset($_POST['User'])) {
+            Yii::app()->getModule("touchstone")->addPoints("User module testing");
             $model->attributes = $_POST['User'];
             $model->activkey = Yii::app()->controller->module->encrypting(microtime() . $model->password);
             $profile->attributes = $_POST['Profile'];
@@ -106,6 +107,8 @@ class AdminController extends BaseCMSController {
 
         if (isset($_POST['User'])) {
 
+            Yii::app()->getModule("touchstone")->addPoints("User module testing");
+
             $model->attributes = $_POST['User'];
             $profile->attributes = $_POST['Profile'];
 
@@ -117,29 +120,15 @@ class AdminController extends BaseCMSController {
                 }
                 $model->save();
                 $profile->save();
-                $this->addUserToProjects($model->id, $_POST["projectSelector"]);
+
+                if (isset($_POST["projectSelector"]))
+                    $this->addUserToProjects($model->id, $_POST["projectSelector"]);
+                
                 $this->redirect(array('view', 'id' => $model->id));
             }
             else
                 $profile->validate();
         }
-
-
-        $loggedInUserId = $this->user->getId();
-        $activeProjectsForUserSQL = <<<EOF
-        
-        SELECT project.Id ProjectId
-        FROM project
-        INNER JOIN userproject adminProjects ON adminProjects.ProjectId = project.Id
-        AND adminProjects.UserId = $loggedInUserId
-        INNER JOIN userproject projectsForUser ON projectsForUser.`ProjectId` = project.Id
-        AND projectsForUser.UserId = $model->id
-
-EOF;
-
-
-        $activeProjectsForUser = Yii::app()->db->createCommand($activeProjectsForUserSQL)->queryAll();
-
 
         $activeProjectsForUser = Project::model()->with(array(
                     "users" => array(
@@ -147,21 +136,16 @@ EOF;
                     )
                 ))->findAll();
 
-        $allProjectsAvailableToTheUser = Project::model()->with(array(
-                    "users" => array(
-                        "condition" => "UserId = $loggedInUserId"
-                    )
-                ))->findAll();
-
         $this->render('update', array(
             'model' => $model,
             'profile' => $profile,
-            'allProjectsAvailableToTheUser' => $allProjectsAvailableToTheUser,
+            'allProjectsAvailableToTheUser' => Project::model()->findAll(),
             "activeProjectsForUser" => $activeProjectsForUser
         ));
     }
 
     private function addUserToProjects($userId, $projectIds) {
+        Yii::app()->getModule("touchstone")->addPoints("User module testing", 2);
 
         $transaction = UserProject::model()->dbConnection->beginTransaction();
 

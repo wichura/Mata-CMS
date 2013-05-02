@@ -85,3 +85,11 @@
     <?php $this->endWidget(); ?>
 
 </div><!-- form -->
+
+
+<?php
+$this->widget("application.modules.touchstone.widgets.touchstoneWidget.TouchstoneWidget", array(
+    "scenario" => "User module testing"
+));
+
+?>

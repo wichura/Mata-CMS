@@ -35,8 +35,9 @@ return array(
             "tableProfiles" => "userprofile",
             "tableProfileFields" => "userprofilefield",
             'returnUrl' => "/",
-            'captcha' => array('registration'=>false)
+            'captcha' => array('registration' => false)
         ),
+        "touchstone"
     ),
     'components' => array(
         'user' => array(
@@ -72,11 +73,11 @@ return array(
                     'class' => 'CFileLogRoute',
                     'levels' => 'error, warning',
                 ),
-                /*
+            /*
               array(
               'class'=>'CWebLogRoute',
               ),
-                 */
+             */
             ),
         ),
     ),
