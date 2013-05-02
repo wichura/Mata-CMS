@@ -3,6 +3,7 @@
 class TouchstoneModule extends CWebModule {
 
     public $defaultController = "touchstone";
+    public $active;
 
     public function init() {
         // this method is called when the module is being created
@@ -24,6 +25,10 @@ class TouchstoneModule extends CWebModule {
     }
 
     public function addPoints($scenario, $points = 1) {
+
+        if ($this->active == false)
+            return;
+
         $scenario = Touchstone::model()->findByPk($scenario);
 
         if ($scenario == null)

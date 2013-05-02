@@ -76,7 +76,7 @@ class User extends CActiveRecord {
         $relations = Yii::app()->getModule('user')->relations;
         if (!isset($relations['profile']))
             $relations['profile'] = array(self::HAS_ONE, 'Profile', 'user_id');
-        
+
         $relations['projects'] = array(self::MANY_MANY, 'Project', 'userproject(UserId, ProjectId)');
         return $relations;
     }
@@ -154,8 +154,10 @@ class User extends CActiveRecord {
         // Warning: Please modify the following code to remove attributes that
         // should not be searched.
 
-        $criteria = new CDbCriteria;
 
+
+
+        $criteria = new CDbCriteria;
         $criteria->compare('id', $this->id);
         $criteria->compare('username', $this->username, true);
         $criteria->compare('password', $this->password);
@@ -164,14 +166,28 @@ class User extends CActiveRecord {
         $criteria->compare('create_at', $this->create_at);
         $criteria->compare('lastvisit_at', $this->lastvisit_at);
         $criteria->compare('superuser', $this->superuser);
-        $criteria->compare('status', $this->status);
+
+        $criteria->compare('FirstName', $this->status);
 
         $criteria->condition = "id <> " . Yii::app()->user->getId();
         $criteria->with = "profile";
-        $criteria->order = "profile.FirstName ASC, profile.LastName ASC";
-                
+        $criteria->together = true;
+
+        if (isset($_GET["filter"]) && !empty($_GET["filter"])) {
+            $filter = $_GET["filter"];
+            
+            $criteria->compare("username", $filter, true, "AND");
+            $criteria->compare("email", $filter, true, "OR");
+            $criteria->compare("profile.FirstName", $filter, true, "OR");
+            $criteria->compare("profile.LastName", $filter, true, "OR");
+        }
+
         return new CActiveDataProvider(get_class($this), array(
             'criteria' => $criteria,
+            'sort' => array(
+                "attributes" => array("profile.FirstName", "profile.LastName", "username", "email", "lastvisit_at"),
+                "defaultOrder" => 'profile.FirstName ASC, profile.LastName ASC'
+            ),
             'pagination' => array(
                 'pageSize' => Yii::app()->getModule('user')->user_page_size,
             ),

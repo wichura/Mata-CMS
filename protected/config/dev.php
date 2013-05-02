@@ -37,7 +37,9 @@ return array(
             'returnUrl' => "/",
             'captcha' => array('registration' => false)
         ),
-        "touchstone"
+        "touchstone" => array(
+            "active" => false
+        )
     ),
     'components' => array(
         'user' => array(

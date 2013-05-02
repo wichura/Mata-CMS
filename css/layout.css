@@ -363,3 +363,13 @@ img.avatar {
     vertical-align:super;
     font-size: smaller;
 }
+
+#cms-form-content .list-view-loading {
+    background-position: 49% 25px ;
+}
+
+#cms-form-content .list-view .sorter, #cms-form-content .items .empty {
+    margin-top: 5px;
+    display: block;
+    margin-bottom: 15px;
+}
