@@ -1,0 +1,16 @@
+h1 {
+    margin-bottom: 20px;
+}
+
+label {
+    margin-bottom: 2px;
+    display: block;
+}
+
+.row {
+    margin-bottom: 15px;
+}
+
+#cms-form-content {
+    padding: 20px;
+}
