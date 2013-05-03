@@ -373,3 +373,11 @@ img.avatar {
     display: block;
     margin-bottom: 15px;
 }
+
+.list-selection h4, .list-selection .label {
+    margin-bottom: 10px;
+}
+
+.list-selection .actions a {
+    margin: 0 3px;
+}
