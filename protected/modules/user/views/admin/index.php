@@ -1,28 +1,4 @@
 <?php
-//$this->breadcrumbs=array(
-//	UserModule::t('Users')=>array('/user'),
-//	UserModule::t('Manage'),
-//);
-//
-//$this->menu=array(
-//    array('label'=>UserModule::t('Create User'), 'url'=>array('create')),
-//    array('label'=>UserModule::t('Manage Users'), 'url'=>array('admin')),
-//    array('label'=>UserModule::t('Manage Profile Field'), 'url'=>array('profileField/admin')),
-//    array('label'=>UserModule::t('List User'), 'url'=>array('/user')),
-//);
-//Yii::app()->clientScript->registerScript('search', "
-//$('.search-button').click(function(){
-//    $('.search-form').toggle();
-//    return false;
-//});	
-//$('.search-form form').submit(function(){
-//    $.fn.yiiGridView.update('user-grid', {
-//        data: $(this).serialize()
-//    });
-//    return false;
-//});
-//");
-
 Yii::app()->clientScript->registerScript('search', "var ajaxUpdateTimeout;
     var ajaxRequest;
     $('input#filter').keyup(function(){
@@ -52,7 +28,7 @@ Yii::app()->clientScript->registerScript('search', "var ajaxUpdateTimeout;
         opacity: 0;
         display: none;
         margin-left: -175px;
-        background: rgba(55,55,55, 0.8);
+        background: rgba(55,55,55, 0.95);
         padding: 20px;
         -webkit-border-radius: 5px;
         border-radius: 5px;
@@ -65,7 +41,7 @@ Yii::app()->clientScript->registerScript('search', "var ajaxUpdateTimeout;
     <h4>Selection</h4>
     <p class="label"></p>
     <div class="actions">
-        <a href="#">
+        <a onclick="$.fn.selection('delete')"  href="javascript:void(0)">
             <img src="/images/layout/icons/trash-icon.png" />
         </a>
         <a onclick="$.fn.selection('cancelSelection')" href="javascript:void(0)">
@@ -128,15 +104,14 @@ $this->widget('zii.widgets.CListView', array(
 
                     $(item).each(function(i, item) {
                         item = $(item);
-                        item.toggleClass("selected");
                         item.width(item.width());
 
                         var isSelected = item.hasClass("selected");
 
                         if (isSelected) {
-                            selectItem(item)
-                        } else {
                             deselectItem(item)
+                        } else {
+                            selectItem(item)
                         }
 
                     })
@@ -151,12 +126,13 @@ $this->widget('zii.widgets.CListView', array(
                         $(".list-selection .label").css("opacity", 0) // to prevent jumping of text
                         $(".list-selection").stop().transition({opacity: 0}, function() {
                             $(this).css("display", "none")
-                            $(".list-selection .label").css("opacity", 1) 
+                            $(".list-selection .label").css("opacity", 1)
                         });
                     }
                 }
 
                 function deselectItem(item) {
+                    item.removeClass("selected");
                     var itemLabel = item.find("h4").first().html();
                     $.each(selection, function(i) {
                         if (selection[i] === itemLabel)
@@ -169,6 +145,7 @@ $this->widget('zii.widgets.CListView', array(
                 }
 
                 function selectItem(item) {
+                    item.addClass("selected");
                     var itemLabel = item.find("h4").first().html();
                     $.each(selection, function(i) {
                         if (selection[i] === itemLabel)
@@ -182,10 +159,24 @@ $this->widget('zii.widgets.CListView', array(
 
                 var methods = {
                     cancelSelection: function() {
-                        console.log(selection);
-
-                        $("#user-grid").find("a.selected").each(function() {
+                        $("#user-grid").find(".selected").each(function() {
                             deselectItem($(this))
+                        })
+                    },
+                    delete: function() {
+                        $("#user-grid").find(".selected").each(function() {
+                            var deleteLink = $(this).find(".delete").attr("href");
+                            var linkElem = $(this);
+
+                            $.ajax(deleteLink, {
+                                "type": "POST"
+                            }).success(function() {
+                                deselectItem(linkElem);
+                                linkElem.transition({"height" : "0px"}, function() {
+                                    linkElem.remove()
+                                })
+                            })
+
                         })
                     }
                 }
@@ -204,14 +195,19 @@ $this->widget('zii.widgets.CListView', array(
                 };
             })(jQuery);
 
-            $("#user-grid").on("click", "a.list-view-item", function(e) {
+            $("#user-grid").on("click", ".list-view-item", function(e) {
                 // $.fn.selectItem($(this))
-                if (e.metaKey)
+                if (e.metaKey) {
                     $.fn.toggleItem($(this))
-                e.stopPropagation();
-                return false;
+                    e.stopPropagation();
+                    return false;
+                }
             })
-            
+
+            $("#user-grid").on("click", "a.delete", function() {
+                $.fn.selection.delete()
+            })
+
             $("#user-grid").on("selection-changed", function() {
                 $.fn.updateLabel()
             })

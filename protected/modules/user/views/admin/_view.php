@@ -1,14 +1,24 @@
-<a href="/user/admin/update/id/<?php echo $data->id ?>" class="list-view-item">
-    <div style="margin-right: 10px; width: 70px;" class="column">
-        <?php echo Html::gravatar($data->email); ?>
-    </div>
-    <div style="width: 770px" class="column">
-        <h4><?php echo $data->profile->FirstName ?> <?php echo $data->profile->LastName ?></h4>
-        <hr />
+<div class="list-view-item">
+    <a href="/user/admin/update/id/<?php echo $data->id ?>">
+        <div style="margin-right: 10px; width: 70px;" class="column">
+            <?php echo Html::gravatar($data->email); ?>
+        </div>
+        <div style="width: 770px" class="column">
+            <h4><?php echo $data->profile->FirstName ?> <?php echo $data->profile->LastName ?></h4>
+            <hr />
 
-        <ul class="horizontal">
-            <li>Email: <?php echo $data->email ?></li>
-            <li>Last visit: <?php echo Date::standardDateFormat($data->lastvisit_at) ?></li>
-        </ul>
+            <ul class="horizontal">
+                <li>Username: <?php echo $data->username ?></li>
+                <li>Email: <?php echo $data->email ?></li>
+
+                <?php if ($data->lastvisit_at): ?>
+                    <li>Last visit: <?php echo Date::standardDateFormat($data->lastvisit_at) ?></li>
+                <?php endif; ?>
+            </ul>
+
+        </div>
+    </a>
+    <div class='actions hidden'>
+        <a class='delete' href='admin/delete/id/<?php echo $data->id ?>'>&nbsp;</a>
     </div>
-</a>
+</div>

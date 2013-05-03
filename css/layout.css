@@ -361,11 +361,19 @@ img.avatar {
 
 .date-suffix {
     vertical-align:super;
-    font-size: smaller;
+    font-size: 7px;
+    line-height: 0px;
 }
 
 #cms-form-content .list-view-loading {
     background-position: 49% 25px ;
+}
+
+#cms-form-content .list-view .actions.hidden {
+    height: 0px;
+    width: 0px;
+    overflow: hidden;
+    position: absolute;
 }
 
 #cms-form-content .list-view .sorter, #cms-form-content .items .empty {
@@ -381,3 +389,4 @@ img.avatar {
 .list-selection .actions a {
     margin: 0 3px;
 }
+
