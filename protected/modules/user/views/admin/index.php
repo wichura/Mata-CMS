@@ -44,8 +44,6 @@ Yii::app()->clientScript->registerScript('search', "var ajaxUpdateTimeout;
 
 
 
-
-
 <h1><?php echo UserModule::t("Users"); ?></h1>
 
 
@@ -74,3 +72,35 @@ $this->widget('zii.widgets.CListView', array(
     "template" => "{sorter}<div class='list-view standard-list'>{items}</div>",
     'itemView' => '_view',
 ));
+?>
+
+<script>
+
+
+    (function($) {
+        
+        
+        
+        $.fn.selectItem = function(item) {
+            $(item).each(function(i, item) {
+                item = $(item);
+                item.toggleClass("selected");
+                item.width(item.width());
+                
+                item.transition({"padding-left": item.hasClass("selected") ? "30px" : 0})
+                
+                console.log("Selected " )
+                
+            })
+        }
+    })(jQuery);
+
+    $("#user-grid").on("click", "a.list-view-item", function(e) {
+        $.fn.selectItem($(this))
+        if (e.metaKey)
+            $.fn.selectItem($(this))
+        e.stopPropagation();
+        return false;
+    })
+
+</script>

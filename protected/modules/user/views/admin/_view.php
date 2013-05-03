@@ -8,7 +8,7 @@
 
         <ul class="horizontal">
             <li>Email: <?php echo $data->email ?></li>
-            <li>Last accessed: <?php echo Date::standardDateFormat($data->lastvisit_at) ?></li>
+            <li>Last visit: <?php echo Date::standardDateFormat($data->lastvisit_at) ?></li>
         </ul>
     </div>
 </a>
