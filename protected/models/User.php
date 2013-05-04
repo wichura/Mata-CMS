@@ -225,7 +225,7 @@ class User extends MataActiveRecord {
     }
     
     public function getLabel() {
-        return $this->profile->FirstName . " " . $this->profile->LastName;
+        return $this->profile->FirstName . " " . $this->profile->LastName; 
     }
 
 }
