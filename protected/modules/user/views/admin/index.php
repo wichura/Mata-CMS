@@ -187,6 +187,11 @@ $this->widget('zii.widgets.CListView', array(
                         });
                     },
                     delete: function() {
+
+                        if (confirm("Confirm removal of " + formatDisplayableTextForSelection(selection).replace(/<br ?\/?>/g, "")) == false)
+                            return;
+                            
+
                         $("#user-grid").find(".selected").each(function() {
                             var deleteLink = $(this).find(".delete").attr("href");
                             var linkElem = $(this);

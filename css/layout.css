@@ -100,12 +100,13 @@ hr {
     cursor: pointer;
 }
 
-input, select, option, button, .btn{
+input, select, option, button, .btn, input{
     border: solid 1px rgb(51, 51, 51);
     -moz-border-radius: 3px;
     border-radius: 3px;
     width: 100%; 
     -webkit-transition: all 0.2s ;
+    background: none;
     -moz-transition: all 0.2s ;
     -ms-transition: all 0.2s ;
     -o-transition: all 0.2s ;
@@ -120,11 +121,13 @@ input, select, option, button, .btn{
     -webkit-appearance:none;
 }
 
-button, .btn {
+button, .btn, input[type=submit]{
     text-align: center;
+    width: auto;
+    cursor: pointer;
 }
 
-.btn:hover, .btn.active {
+.btn:hover, button:hover, input[type=submit]:hover, .btn.active {
     background: rgb(51, 51, 51);
     color: #FFF;
 }
@@ -138,13 +141,6 @@ input:focus, select:focus {
 
 input[type=checkbox] {
     width: auto;
-}
-
-input[type=submit] {
-    cursor: pointer;
-    font-weight: 500;
-    width: auto;
-    padding: 7px 12px;
 }
 
 #side-menu {
@@ -433,3 +429,8 @@ img.avatar {
 .flash-success {
     background: rgba(10,139,0, 0.65);
 }
+
+.flash-error {
+    background: rgba(200,39,30, 0.65);
+}
+
