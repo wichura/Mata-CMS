@@ -17,6 +17,7 @@
 
 
         <script type="text/javascript" src="/js/behaviors/retinaImages.js"></script>
+        <script type="text/javascript" src="/js/behaviors/flashMessage.js"></script>
         <script type="text/javascript" src="/js/main.js"></script>
 
         <title><?php echo CHtml::encode($this->pageTitle); ?></title>

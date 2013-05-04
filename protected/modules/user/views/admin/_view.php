@@ -4,7 +4,7 @@
             <?php echo Html::gravatar($data->email); ?>
         </div>
         <div style="width: 770px" class="column">
-            <h4><?php echo $data->profile->FirstName ?> <?php echo $data->profile->LastName ?></h4>
+            <h4 class="model-label"><?php echo $data->getLabel() ?></h4>
             <hr />
 
             <ul class="horizontal">

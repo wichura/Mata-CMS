@@ -1,7 +1,7 @@
 $(window).ready(function() {
 
     var isRetina = window.devicePixelRatio > 1;
-return
+
     if (isRetina)
         $("img").each(function(i, el) {
             var newImg = new Image();
@@ -14,17 +14,11 @@ return
 
                 if ($(el).hasClass("no-rescale") == false)
                     $(el).css({
-                        width: $(el).width(),
-                        height: $(el).height()
+                        width: newImg.width() / 2,
+                        height: newImg.height() / 2
                     })
 
                 $(el).attr("src", newSrc)
             })
-
-
-
-
         })
-
-
 })

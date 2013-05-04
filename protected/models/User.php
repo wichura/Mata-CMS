@@ -1,6 +1,6 @@
 <?php
 
-class User extends CActiveRecord {
+class User extends MataActiveRecord {
 
     const STATUS_NOACTIVE = 0;
     const STATUS_ACTIVE = 1;
@@ -30,6 +30,13 @@ class User extends CActiveRecord {
      */
     public static function model($className = __CLASS__) {
         return parent::model($className);
+    }
+
+    public function behaviors() {
+        return array(
+            'modelLabel' => array(
+                'class' => 'application.behaviors.ModelLabelBehavior'
+        ));
     }
 
     /**
@@ -175,7 +182,7 @@ class User extends CActiveRecord {
 
         if (isset($_GET["filter"]) && !empty($_GET["filter"])) {
             $filter = $_GET["filter"];
-            
+
             $criteria->compare("username", $filter, true, "AND");
             $criteria->compare("email", $filter, true, "OR");
             $criteria->compare("profile.FirstName", $filter, true, "OR");
@@ -215,6 +222,10 @@ class User extends CActiveRecord {
             Yii::app()->user->updateSession();
         }
         return parent::afterSave();
+    }
+    
+    public function getLabel() {
+        return $this->profile->FirstName . " " . $this->profile->LastName;
     }
 
 }

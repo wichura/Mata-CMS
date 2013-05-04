@@ -74,14 +74,37 @@ echo CHtml::textField('filter', (isset($_GET['filter'])) ? $_GET['filter'] : '',
 $this->widget('zii.widgets.CListView', array(
     'dataProvider' => $model->search(),
     "id" => "user-grid",
+    "pager" => array('class' => 'application.widgets.pagers.InfinitePager'),
     'sortableAttributes' => array("username", 'profile.FirstName', 'profile.LastName', 'lastvisit_at'),
-    "template" => "{sorter}<div class='list-view standard-list'>{items}</div>",
+    "template" => "{sorter}<div class='list-view standard-list'>{items}</div>{pager}",
     'itemView' => '_view',
 ));
 ?>
 
 <script>
+            console.log($.fn.yiiListView)
+            function getNextPage(e) {
 
+                var currentTarget = $(e.currentTarget)
+                $("#user-grid").addClass("list-view-loading")
+                $.ajax(currentTarget.attr("href")).success(function(data) {
+                    var container = $("<div id ='sss'/>").html(data)
+
+                    $("#user-grid").find(".items").append($(container).find(".items").html());
+                    var pager = $(container.find(".pager a"));
+                    if (pager.length > 0) {
+                        currentTarget.attr("href", pager.attr("href"))
+                    } else
+                        $("#user-grid").find(".pager").hide();
+
+                    // console.log(container)
+//        $("#user-grid").html(data)
+                }).always(function() {
+                    $("#user-grid").removeClass("list-view-loading")
+                })
+                e.stopPropagation();
+                return false;
+            }
 
             (function($) {
 
@@ -123,7 +146,7 @@ $this->widget('zii.widgets.CListView', array(
                         $(".list-selection").stop().transition({opacity: 1});
                         $(".list-selection .label").html(formatDisplayableTextForSelection(selection))
                     } else {
-                        $(".list-selection .label").css("opacity", 0) // to prevent jumping of text
+                        $(".list-selection .label").css("opacity", 0);
                         $(".list-selection").stop().transition({opacity: 0}, function() {
                             $(this).css("display", "none")
                             $(".list-selection .label").css("opacity", 1)
@@ -133,7 +156,7 @@ $this->widget('zii.widgets.CListView', array(
 
                 function deselectItem(item) {
                     item.removeClass("selected");
-                    var itemLabel = item.find("h4").first().html();
+                    var itemLabel = item.find(".model-label").first().html();
                     $.each(selection, function(i) {
                         if (selection[i] === itemLabel)
                             selection.splice(i, 1);
@@ -141,12 +164,12 @@ $this->widget('zii.widgets.CListView', array(
 
                     item.transition({"padding-left": 0});
 
-                    $("#user-grid").trigger("selection-changed")
+                    $("#user-grid").trigger("selection-changed");
                 }
 
                 function selectItem(item) {
                     item.addClass("selected");
-                    var itemLabel = item.find("h4").first().html();
+                    var itemLabel = item.find(".model-label").first().html();
                     $.each(selection, function(i) {
                         if (selection[i] === itemLabel)
                             selection.splice(i, 1);
@@ -161,7 +184,7 @@ $this->widget('zii.widgets.CListView', array(
                     cancelSelection: function() {
                         $("#user-grid").find(".selected").each(function() {
                             deselectItem($(this))
-                        })
+                        });
                     },
                     delete: function() {
                         $("#user-grid").find(".selected").each(function() {
@@ -172,7 +195,7 @@ $this->widget('zii.widgets.CListView', array(
                                 "type": "POST"
                             }).success(function() {
                                 deselectItem(linkElem);
-                                linkElem.transition({"height" : "0px"}, function() {
+                                linkElem.transition({"height": "0px"}, function() {
                                     linkElem.remove()
                                 })
                             })
@@ -183,7 +206,6 @@ $this->widget('zii.widgets.CListView', array(
 
                 $.fn.selection = function(method) {
 
-                    // Method calling logic
                     if (methods[method]) {
                         return methods[ method ].apply(this, Array.prototype.slice.call(arguments, 1));
                     } else if (typeof method === 'object' || !method) {
@@ -196,7 +218,6 @@ $this->widget('zii.widgets.CListView', array(
             })(jQuery);
 
             $("#user-grid").on("click", ".list-view-item", function(e) {
-                // $.fn.selectItem($(this))
                 if (e.metaKey) {
                     $.fn.toggleItem($(this))
                     e.stopPropagation();
@@ -211,5 +232,7 @@ $this->widget('zii.widgets.CListView', array(
             $("#user-grid").on("selection-changed", function() {
                 $.fn.updateLabel()
             })
+
+            $.fn.selection('cancelSelection');
 
 </script>
