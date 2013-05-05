@@ -7,7 +7,6 @@
 return array(
     'basePath' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..',
     'name' => 'Mata CMS',
-    'defaultController' => 'Home',
     // preloading 'log' component
     'language' => 'en',
     'preload' => array('log'),

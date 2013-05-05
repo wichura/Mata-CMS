@@ -21,11 +21,19 @@ class MataWebApplication extends CWebApplication {
     }
 
     public function createController($route, $owner = null) {
+
+        if ($owner === null)
+            $owner = $this;
+
+        if (($route = trim($route, '/')) === '')
+            $route = $owner->defaultController;
+
         $explodedRoute = explode("/", $route);
         if (count($explodedRoute) > 0 && $explodedRoute[0] == $this->mataScopeUrl) {
             $this->setControllerPath(Yii::getPathOfAlias("mata") . DIRECTORY_SEPARATOR . "controllers");
             $this->setViewPath(Yii::getPathOfAlias("mata") . DIRECTORY_SEPARATOR . 'views');
             $this->setLayoutPath($this->getViewPath() . DIRECTORY_SEPARATOR . "layouts");
+            
             unset($explodedRoute[0]);
             $route = implode("/", $explodedRoute);
         }
