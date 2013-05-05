@@ -1,1 +1,0 @@
-<?php $this->widget("application.widgets.formControllers.projectSelector.ProjectSelector"); ?>

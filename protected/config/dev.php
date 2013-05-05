@@ -13,9 +13,7 @@ return array(
     'preload' => array('log'),
     // autoloading model and component classes
     'import' => array(
-        'application.models.base.*',
         'application.models.*',
-        'application.widgets.base.*',
         'application.components.*',
         'application.controllers.base.*',
         'application.helpers.*'
@@ -26,31 +24,11 @@ return array(
             'password' => 'dev',
             'ipFilters' => array('127.0.0.1', '::1'),
         ),
-        'user' => array(
-            'hash' => 'sha1',
-            'sendActivationMail' => true,
-            'activeAfterRegister' => false,
-            'autoLogin' => true,
-            'tableUsers' => "user",
-            "tableProfiles" => "userprofile",
-            "tableProfileFields" => "userprofilefield",
-            'returnUrl' => "/",
-            'captcha' => array('registration' => false)
-        ),
         "touchstone" => array(
             "active" => false
         )
     ),
     'components' => array(
-        'user' => array(
-            'class' => 'application.modules.user.components.WebUser',
-        ),
-        'keyValue' => array(
-            "class" => "ext.KeyValue"
-        ),
-        'eventLog' => array(
-            "class" => "ext.SystemEventLog"
-        ),
         'urlManager' => array(
             'urlFormat' => 'path',
             'showScriptName' => false,
