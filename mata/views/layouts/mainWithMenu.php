@@ -4,11 +4,11 @@
     <div id="side-menu">
         <ul>
             <li id="side-menu-dashboard"><a onclick="hideSubmenu()" href='/mata/dashboard'><img src='/images/layout/icons/map-icon.png' /></a></li>
-            <li id="side-menu-content"><a href='javascript:void(0)' onclick="showSideMenu('content')"><img src='/images/layout/icons/note-icon.png' /></a></li>
+            <!--<li id="side-menu-content"><a href='javascript:void(0)' onclick="showSideMenu('content')"><img src='/images/layout/icons/note-icon.png' /></a></li>-->
             <li id="side-menu-profiles"><a href='javascript:void(0)' onclick="showSideMenu('profiles')"><img src='/images/layout/icons/user-<?php echo $this->user->Sex ?>-icon.png' /></a></li>
-            <li id="side-menu-forms"><a href='#'><img src='/images/layout/icons/texting-icon.png' /></a></li>
-            <li id="side-menu-settings"><a href='#'><img src='/images/layout/icons/settings-icon.png' /></a></li>
-            <li id="side-menu-help"><a href='#'><img src='/images/layout/icons/loudspeaker-icon.png' /></a></li>
+            <!--<li id="side-menu-forms"><a href='#'><img src='/images/layout/icons/texting-icon.png' /></a></li>-->
+            <!--<li id="side-menu-settings"><a href='#'><img src='/images/layout/icons/settings-icon.png' /></a></li>-->
+            <!--<li id="side-menu-help"><a href='#'><img src='/images/layout/icons/loudspeaker-icon.png' /></a></li>-->
         </ul>
 
         <footer>
@@ -87,7 +87,7 @@ $this->widget("application.modules.touchstone.widgets.touchstoneWidget.Touchston
                     overlay.transition({opacity: 0.5});
 
 
-                    $.ajax("/home/getProjectsSelector").success(function(data) {
+                    $.ajax("/mata/home/getProjectsSelector").success(function(data) {
 
                         var wrapper = $("<div class='dialog-box' id='project-selector' />");
                         wrapper.append("<h2>Select Project</h2>");
@@ -103,7 +103,7 @@ $this->widget("application.modules.touchstone.widgets.touchstoneWidget.Touchston
 
                         $("#project-selector").find(".multioption-element").on("click", function() {
                             var projectId = $(this).attr("data-project-id");
-                            $.ajax("/home/setProject", {
+                            $.ajax("/mata/home/setProject", {
                                 data: {
                                     projectId: projectId
                                 }

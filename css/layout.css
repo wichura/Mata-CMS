@@ -428,7 +428,7 @@ img.avatar {
 
 [class^="flash"] {
     cursor: default;
-    position: absolute;
+    position: fixed;
     top: 10px;
     left: 50%; 
     width: 250px;

@@ -33,6 +33,14 @@ return array(
         ),
         'eventLog' => array(
             "class" => "mata.extensions.SystemEventLog"
-        )
+        ),
+        'matadb' => array(
+            'connectionString' => 'mysql:host=37.123.117.163;dbname=matacmsnewdesign',
+            'emulatePrepare' => true,
+            'username' => 'matacms',
+            'password' => 'V9gOhicqxwHpY6p',
+            'charset' => 'utf8',
+            'enableParamLogging' => true
+        ),
     )
 );

@@ -16,7 +16,12 @@
 .rememberMe {
     float: left;
     width: 50%;
+    line-height: 21px;
     overflow: hidden;
+}
+
+.rememberMe label {
+    vertical-align: top;
 }
 
 .submit {

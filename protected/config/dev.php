@@ -14,7 +14,6 @@ return array(
     'import' => array(
         'application.models.*',
         'application.components.*',
-        'application.controllers.base.*',
         'application.helpers.*'
     ),
     'modules' => array(
@@ -36,14 +35,6 @@ return array(
                 '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
                 '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
             ),
-        ),
-        'db' => array(
-            'connectionString' => 'mysql:host=37.123.117.163;dbname=matacmsnewdesign',
-            'emulatePrepare' => true,
-            'username' => 'matacms',
-            'password' => 'V9gOhicqxwHpY6p',
-            'charset' => 'utf8',
-            'enableParamLogging' => true
         ),
         'log' => array(
             'class' => 'CLogRouter',

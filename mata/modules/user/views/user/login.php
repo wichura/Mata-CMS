@@ -44,12 +44,12 @@ $this->pageTitle = Yii::app()->name . ' - ' . UserModule::t("Login");
             </p>
         </div>
 
-        <div class="row rememberMe">
+<!--        <div class="row rememberMe">
             <?php echo CHtml::activeCheckBox($model, 'rememberMe'); ?>
             <?php echo CHtml::activeLabelEx($model, 'rememberMe', array(
                 "class" => "clickable"
             )); ?>
-        </div>
+        </div>-->
 
         <div class="row submit">
             <?php

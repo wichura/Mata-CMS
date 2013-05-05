@@ -15,21 +15,9 @@ Yii::import("zii.widgets.CListView");
 class MListView extends CListView {
 
     public $template = "{sorter}<div class='list-view standard-list'>{items}</div>{pager}";
-
-    public function init() {
-
-        if ($this->itemView == null)
-            $this->itemView = "mata.widgets.mListView.defaultView";
-
-        if ($this->pager == null)
-            $this->pager = array('class' => 'mata.widgets.pagers.InfinitePager');
-
-        parent::init();
-    }
-
+    public $pager = array('class' => 'mata.widgets.pagers.InfinitePager');
+    
     public function run() {
-
-
         $this->renderFilter();
         $this->renderListSelection();
         parent::run();
@@ -55,9 +43,9 @@ class MListView extends CListView {
     }
 
     private function renderListSelection() {
-        
+
         $listSelectionId = "list-selection-" . $this->id;
-        
+
         echo <<<EOT
                 <div id="$listSelectionId" class="list-selection">
     <h4>Selection</h4>

@@ -3,6 +3,7 @@
 class LoginController extends CController {
 
     public $defaultAction = 'login';
+    public $layout='mata.views.layouts.main';
 
     /**
      * Displays the login page

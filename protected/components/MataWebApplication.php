@@ -17,6 +17,14 @@ class MataWebApplication extends CWebApplication {
 
         $mataConfig = require($mataFolderPath . DIRECTORY_SEPARATOR . "config" . DIRECTORY_SEPARATOR . (YII_DEBUG ? "dev.php" : "main.php"));
         $config = CMap::mergeArray($mataConfig, require($config));
+
+
+        $this->setComponents(array(
+            'matadb' => array(
+                'class' => 'CDbConnection',
+            )
+        ));
+
         parent::__construct($config);
     }
 
@@ -33,12 +41,16 @@ class MataWebApplication extends CWebApplication {
             $this->setControllerPath(Yii::getPathOfAlias("mata") . DIRECTORY_SEPARATOR . "controllers");
             $this->setViewPath(Yii::getPathOfAlias("mata") . DIRECTORY_SEPARATOR . 'views');
             $this->setLayoutPath($this->getViewPath() . DIRECTORY_SEPARATOR . "layouts");
-            
+
             unset($explodedRoute[0]);
             $route = implode("/", $explodedRoute);
         }
 
         return parent::createController($route, $owner);
+    }
+
+    public function getDb() {
+        return $this->getComponent('matadb');
     }
 
     public function setContentLanguage($contentLanguage) {
