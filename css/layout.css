@@ -110,7 +110,7 @@ input, select, option, button, .btn, input{
     border-radius: 3px;
     width: 100%; 
     -webkit-transition: all 0.2s ;
-    background: none;
+    background: #FFF;
     -moz-transition: all 0.2s ;
     -ms-transition: all 0.2s ;
     -o-transition: all 0.2s ;
@@ -128,6 +128,7 @@ input, select, option, button, .btn, input{
 button, .btn, input[type=submit]{
     text-align: center;
     width: auto;
+    background: #d6d6d6;
     cursor: pointer;
 }
 
