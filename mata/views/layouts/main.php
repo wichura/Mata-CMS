@@ -12,7 +12,7 @@
         <link rel="stylesheet" type="text/css" href="/css/layout.css" />
         <link rel="stylesheet" type="text/css" href="/css/main.css" />
 
-        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script type="text/javascript" src="/js/lib/query.transit.min.js"></script>
 
 

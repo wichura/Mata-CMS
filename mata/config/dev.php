@@ -41,6 +41,6 @@ return array(
             'password' => 'V9gOhicqxwHpY6p',
             'charset' => 'utf8',
             'enableParamLogging' => true
-        ),
+        )
     )
 );
