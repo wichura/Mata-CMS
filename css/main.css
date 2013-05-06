@@ -30,3 +30,8 @@ a, a:active, a:visited {
     -o-transition: all 0.2s ;
     transition: all 0.2s ;
 }
+
+/* FOR ISSUE COLLECTOR */
+#atlwdg-trigger {
+    color: #FFF;
+}

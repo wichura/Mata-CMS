@@ -1,3 +1,5 @@
 # Yii folders
-chmod 557 protected/runtime
+mkdir assets
+mkdir protected/runtime
 chmod 557 assets
+chmod 557 protected/runtime

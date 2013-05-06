@@ -32,7 +32,7 @@
             <li><a href='/user/admin/update/id/<?php echo $this->user->getId() ?>'><img src="/images/layout/icons/creditcard-icon.png" />Content Blocks</a></li>
             <li><a href='/user/admin'><img src="/images/layout/icons/world-icon.png" />Forms</a></li>
             <li><a href='/user/admin'><img src="/images/layout/icons/world-icon.png" />Posts</a></li>
-             
+
         </ul>
 
     </div>
@@ -47,9 +47,19 @@ $this->widget("application.modules.touchstone.widgets.touchstoneWidget.Touchston
 ));
 ?>
 
+
 <script>
+                $(window).ready(function() {
+                    $("#side-menu-dashboard a").trigger("click");
+                    // Requires jQuery!
+                    jQuery.ajax({
+                        url: "http://jira.qi-interactive.com/s/en_UKevdmcy-418945332/812/4/1.2.7/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector-embededjs/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector-embededjs.js?collectorId=c33a832b",
+                        type: "get",
+                        cache: true,
+                        dataType: "script"
+                    });
 
-
+                })
                 $("#side-menu-container").find("li a").bind("click", function() {
 
 

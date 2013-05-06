@@ -6,28 +6,27 @@
 // CWebApplication properties can be configured here.
 return array(
     'basePath' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..',
-    'name' => 'Application',
-    'defaultController' => 'Default',
-    'language' => 'en',
+    'name' => 'Mata CMS',
     // preloading 'log' component
+    'language' => 'en',
     'preload' => array('log'),
     // autoloading model and component classes
     'import' => array(
-        'application.models.base.*',
         'application.models.*',
         'application.components.*',
-        'application.controllers.base.*',
-        'application.widgets.base.*',
         'application.helpers.*'
     ),
     'modules' => array(
-    ),
-    // application components
-    'components' => array(
-        'user' => array(
-            // enable cookie-based authentication
-            'allowAutoLogin' => true,
+        'gii' => array(
+            'class' => 'system.gii.GiiModule',
+            'password' => 'dev',
+            'ipFilters' => array('127.0.0.1', '::1'),
         ),
+        "touchstone" => array(
+            "active" => true
+        )
+    ),
+    'components' => array(
         'urlManager' => array(
             'urlFormat' => 'path',
             'showScriptName' => false,
@@ -37,29 +36,6 @@ return array(
                 '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
             ),
         ),
-        'icoCMSClient' => array(
-            "class" => "application.components.icoCMSClient.IcoCMSClient",
-            "projectKey" => "00981f82c5ea11e1a81e00163e377f54",
-            'db' => array(
-                'connectionString' => 'mysql:host=109.123.107.147;port=3306;dbname=icocms',
-                'emulatePrepare' => true,
-                'username' => 'icocms',
-                'password' => 'icocms_h0td0g',
-                'charset' => 'utf8',
-                'enableParamLogging' => true
-            ),
-            "modules" => array(
-                "form" => array(
-                    "notificationRecipients" => array(
-                        "marcin.wiatr@icodesign.com"
-                    )
-                )
-            )
-        ),
-        'errorHandler' => array(
-            // use 'site/error' action to display errors
-            'errorAction' => 'site/error',
-        ),
         'log' => array(
             'class' => 'CLogRouter',
             'routes' => array(
@@ -67,19 +43,11 @@ return array(
                     'class' => 'CFileLogRoute',
                     'levels' => 'error, warning',
                 ),
-                array(
-                    'class' => 'CEmailLogRoute',
-                    'levels' => 'error, warning',
-                    'emails' => 'marcin.wiatr@cms.icodesign.com',
-                    'sentFrom' => 'developernotification@icodesign.com',
-                    'filter' => 'CLogFilter'
-                )
-            // uncomment the following to show log messages on web pages
-            /**
+            /*
               array(
               'class'=>'CWebLogRoute',
               ),
-             * */
+             */
             ),
         ),
     ),
