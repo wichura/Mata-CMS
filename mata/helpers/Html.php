@@ -15,7 +15,7 @@ class Html extends CHtml {
     
     public static function gravatar($email) {
         return self::image("http://www.gravatar.com/avatar/" . strtolower(trim(md5($email))), 'User Avatar', array(
-            "class" => "avatar"
+            "class" => "avatar no-retina-version"
         ));
     }
 }
