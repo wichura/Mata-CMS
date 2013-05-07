@@ -9,7 +9,7 @@ if (strripos($_SERVER['SERVER_NAME'], "localhost") == true || strrpos($_SERVER['
     error_reporting(E_ALL);
     ini_set("display_errors", 1);
 } else {
-    defined('YII_DEBUG') or define('YII_DEBUG', false);
+    defined('YII_DEBUG') or define('YII_DEBUG', true);
     $config = dirname(__FILE__) . '/protected/config/prod.php';
 }
 
