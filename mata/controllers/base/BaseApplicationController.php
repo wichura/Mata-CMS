@@ -13,7 +13,6 @@ class BaseApplicationController extends BaseController {
     public function filterRegisterCoreScript($filterChain) {
         Yii::app()->clientScript->scriptMap = array(
             'jquery.js' => false,
-            'jquery.ba-bbq.js' => false,
         );
         
         $filterChain->run();
