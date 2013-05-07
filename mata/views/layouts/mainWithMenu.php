@@ -52,6 +52,7 @@ $this->widget("application.modules.touchstone.widgets.touchstoneWidget.Touchston
                 $(window).ready(function() {
                     $("#side-menu-dashboard a").trigger("click");
                     // Requires jQuery!
+
                     jQuery.ajax({
                         url: "http://jira.qi-interactive.com/s/en_UKevdmcy-418945332/812/4/1.2.7/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector-embededjs/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector-embededjs.js?collectorId=c33a832b",
                         type: "get",

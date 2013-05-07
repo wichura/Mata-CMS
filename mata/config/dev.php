@@ -41,6 +41,15 @@ return array(
             'password' => 'V9gOhicqxwHpY6p',
             'charset' => 'utf8',
             'enableParamLogging' => true
+        ),
+        'clientScript' => array(
+            'packages' => array(
+                'bbq' => array(
+                    'basePath' => "webroot.js.lib",
+                    'js' => array('jquery.ba-bbq.js'),
+                    'coreScriptPosition' => CClientScript::POS_HEAD
+                )
+            )
         )
     )
 );
