@@ -10,7 +10,7 @@
  *
  * @author wichura
  */
-class DashboardController extends BaseCMSController {
+class DashboardController extends MataController {
    
     
     public function actionIndex() {

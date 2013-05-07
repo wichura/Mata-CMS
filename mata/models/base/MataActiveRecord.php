@@ -11,11 +11,11 @@
  * @author wichura
  */
 class MataActiveRecord extends BaseActiveRecord {
-    
-    
+
     public function getLabel() {
         return $this->getPrimaryKey();
     }
+
 }
 
 ?>

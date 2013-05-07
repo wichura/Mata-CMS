@@ -13,11 +13,6 @@
  * @property string $URI
  * @property string $ClientId
  * @property string $Language
- * @property string $Alias
- * @property string $MediaId
- * @property string $DateModified
- * @property string $CreatorCMSUserId
- * @property string $ModifierCMSUserId
  *
  * The followings are the available model relations:
  * @property Client $client
@@ -26,7 +21,7 @@
  * @property Cmsuser $modifierCMSUser
  * @property Projecttype $projectType
  */
-class Project extends BaseActiveRecord {
+class Project extends MataCMSActiveRecord {
 
     /**
      * Returns the static model of the specified AR class.
@@ -36,6 +31,12 @@ class Project extends BaseActiveRecord {
     public static function model($className = __CLASS__) {
         return parent::model($className);
     }
+    
+    public function behaviors() {
+        return array(
+            "versions" => "mata.behaviors.VersionedModelBehavior"
+        );
+    }
 
     /**
      * @return string the associated database table name
@@ -43,14 +44,14 @@ class Project extends BaseActiveRecord {
     public function tableName() {
         return 'project';
     }
-    
+
     public function defaultScope() {
-        return array( 
-             'with'=> array(
-                 "users" => array(
-                     "joinType" => "INNER JOIN"
-                 )
-             )
+        return array(
+            'with' => array(
+                "users" => array(
+                    "joinType" => "INNER JOIN"
+                )
+            )
         );
     }
 
@@ -61,15 +62,14 @@ class Project extends BaseActiveRecord {
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('Name, ProjectTypeId, ProjectKey, ClientId, CreatorCMSUserId, ModifierCMSUserId', 'required'),
+            array('Name, ProjectTypeId, ProjectKey, ClientId, CreatorUserId, ModifierUserId', 'required'),
             array('Name, URI', 'length', 'max' => 255),
             array('ProjectTypeId, ClientId', 'length', 'max' => 2),
             array('ProjectKey', 'length', 'max' => 32),
-            array('Language, Alias', 'length', 'max' => 15),
-            array('MediaId, CreatorCMSUserId, ModifierCMSUserId', 'length', 'max' => 11),
+            array('Language', 'length', 'max' => 15),
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
-            array('Id, DateCreated, Name, ProjectTypeId, ProjectKey, URI, ClientId, Language, Alias, MediaId, DateModified, CreatorCMSUserId, ModifierCMSUserId', 'safe', 'on' => 'search'),
+            array('Id, DateCreated, Name, ProjectTypeId, ProjectKey, URI, ClientId, Language, DateModified, CreatorUserId, ModifierUserId', 'safe', 'on' => 'search'),
         );
     }
 
@@ -81,9 +81,8 @@ class Project extends BaseActiveRecord {
         // class name for the relations automatically generated below.
         return array(
             'client' => array(self::BELONGS_TO, 'Client', 'ClientId'),
-            'creatorCMSUser' => array(self::BELONGS_TO, 'Cmsuser', 'CreatorCMSUserId'),
-            'media' => array(self::BELONGS_TO, 'Media', 'MediaId'),
-            'modifierCMSUser' => array(self::BELONGS_TO, 'Cmsuser', 'ModifierCMSUserId'),
+            'creatorCMSUser' => array(self::BELONGS_TO, 'Cmsuser', 'CreatorUserId'),
+            'modifierCMSUser' => array(self::BELONGS_TO, 'Cmsuser', 'ModifierUserId'),
             'projectType' => array(self::BELONGS_TO, 'Projecttype', 'ProjectTypeId'),
             'users' => array(self::MANY_MANY, 'User', 'userproject(UserId, ProjectId)')
         );
@@ -99,14 +98,12 @@ class Project extends BaseActiveRecord {
             'Name' => 'Name',
             'ProjectTypeId' => 'Project Type',
             'ProjectKey' => 'Project Key',
-            'URI' => 'Uri',
+            'URI' => 'Website',
             'ClientId' => 'Client',
             'Language' => 'Language',
-            'Alias' => 'Alias',
-            'MediaId' => 'Media',
             'DateModified' => 'Date Modified',
-            'CreatorCMSUserId' => 'Creator Cmsuser',
-            'ModifierCMSUserId' => 'Modifier Cmsuser',
+            'CreatorUserId' => 'Creator Cmsuser',
+            'ModifierUserId' => 'Modifier Cmsuser',
         );
     }
 
@@ -128,15 +125,54 @@ class Project extends BaseActiveRecord {
         $criteria->compare('URI', $this->URI, true);
         $criteria->compare('ClientId', $this->ClientId, true);
         $criteria->compare('Language', $this->Language, true);
-        $criteria->compare('Alias', $this->Alias, true);
-        $criteria->compare('MediaId', $this->MediaId, true);
         $criteria->compare('DateModified', $this->DateModified, true);
-        $criteria->compare('CreatorCMSUserId', $this->CreatorCMSUserId, true);
-        $criteria->compare('ModifierCMSUserId', $this->ModifierCMSUserId, true);
+        $criteria->compare('CreatorUserId', $this->CreatorUserId, true);
+        $criteria->compare('ModifierUserId', $this->ModifierUserId, true);
+
+
+        if (isset($_GET["filter"]) && !empty($_GET["filter"])) {
+            $filter = $_GET["filter"];
+
+            $criteria->compare("Name", $filter, true, "AND");
+            $criteria->compare("Uri", $filter, true, "OR");
+        }
 
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
         ));
     }
+
+    public function getLabel() {
+        return $this->Name;
+    }
+
+    public function beforeValidate() {
+
+        if ($this->isNewRecord) {
+            $this->ProjectKey = new CDbExpression("REPLACE(UUID(), '-', '')");
+        }
+
+        return parent::beforeValidate();
+    }
+    
+    protected function afterSave() {
+        
+        if ($this->isNewRecord) {
+            $linking = new UserProject();
+            $linking->attributes = array(
+                "ProjectId" => $this->Id,
+                "UserId" => Yii::app()->user->getId()
+            );
+            
+            if ($linking->save() == false)
+                throw new CHttpException("Could not create the linking between the new project and the user due to: " . $linking->getFirstError());
+            
+            
+        }
+        
+        
+        parent::afterSave();
+    }
+
 
 }

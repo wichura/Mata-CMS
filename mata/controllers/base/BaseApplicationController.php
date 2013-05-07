@@ -3,7 +3,6 @@
 class BaseApplicationController extends BaseController {
 
     public $layout = "mainWithMenu";
-
     public function filters() {
         return array_merge(array(
             'registerCoreScript',

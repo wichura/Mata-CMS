@@ -12,7 +12,9 @@ return array(
     'preload' => array('log'),
     // autoloading model and component classes
     'import' => array(
-        'application.models.*',
+        'application.models.base.*',
+        'application.controllers.*',
+         'application.models.*',
         'application.components.*',
         'application.helpers.*'
     ),
@@ -24,7 +26,8 @@ return array(
         ),
         "touchstone" => array(
             "active" => false
-        )
+        ),
+        'project'
     ),
     'components' => array(
         'urlManager' => array(

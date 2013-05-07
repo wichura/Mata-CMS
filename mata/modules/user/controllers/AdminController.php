@@ -1,8 +1,7 @@
 <?php
 
-class AdminController extends BaseCMSController {
+class AdminController extends MataCMSController {
 
-    public $defaultAction = 'admin';
     private $_model;
 
     /**
@@ -101,7 +100,7 @@ class AdminController extends BaseCMSController {
      * If update is successful, the browser will be redirected to the 'view' page.
      */
     public function actionUpdate() {
-       
+
         $model = $this->loadModel();
         $profile = $model->profile;
         $this->performAjaxValidation(array($model, $profile));
@@ -123,7 +122,7 @@ class AdminController extends BaseCMSController {
 
                 if (isset($_POST["projectSelector"]))
                     $this->addUserToProjects($model->id, $_POST["projectSelector"]);
-                
+
                 FlashMessage::setStandardModelUpdateMessage($model);
 
                 $this->redirect(array('admin'));
@@ -144,8 +143,6 @@ class AdminController extends BaseCMSController {
             'allProjectsAvailableToTheUser' => Project::model()->findAll(),
             "activeProjectsForUser" => $activeProjectsForUser
         ));
-        
-        
     }
 
     private function addUserToProjects($userId, $projectIds) {

@@ -7,7 +7,7 @@
             <!--<li id="side-menu-content"><a href='javascript:void(0)' onclick="showSideMenu('content')"><img src='/images/layout/icons/note-icon.png' /></a></li>-->
             <li id="side-menu-profiles"><a href='javascript:void(0)' onclick="showSideMenu('profiles')"><img src='/images/layout/icons/user-<?php echo $this->user->Sex ?>-icon.png' /></a></li>
             <!--<li id="side-menu-forms"><a href='#'><img src='/images/layout/icons/texting-icon.png' /></a></li>-->
-            <!--<li id="side-menu-settings"><a href='#'><img src='/images/layout/icons/settings-icon.png' /></a></li>-->
+            <li id="side-menu-settings"><a href='javascript:void(0)' onclick="showSideMenu('settings')"><img src='/images/layout/icons/settings-icon.png' /></a></li>
             <!--<li id="side-menu-help"><a href='#'><img src='/images/layout/icons/loudspeaker-icon.png' /></a></li>-->
         </ul>
 
@@ -33,6 +33,14 @@
             <li><a href='/user/admin'><img src="/images/layout/icons/world-icon.png" />Forms</a></li>
             <li><a href='/user/admin'><img src="/images/layout/icons/world-icon.png" />Posts</a></li>
 
+        </ul>
+
+    </div>
+    <div id="sub-menu-settings" class="sub-menu">
+        <h2>Settings</h2>
+        <p>Lorem ipsum dolor sit amet, consectuter adupiscig dig.</p>
+        <ul>
+            <li><a href='/project/project'><img src="/images/layout/icons/macbook-icon.png" />Projects</a></li>
         </ul>
 
     </div>

@@ -13,7 +13,11 @@
 class FlashMessage {
 
     public static function setStandardModelUpdateMessage($model) {
-        Yii::app()->user->setFlash('success', get_class($model) . " " . $model->getLabel() . " has been updated");
+        Yii::app()->user->setFlash('success', $model->getLabel() . " has been updated");
+    }
+    
+     public static function setStandardModelCreateMessage($model) {
+        Yii::app()->user->setFlash('success',  "Created new " . get_class($model) . ": " . $model->getLabel());
     }
 
 }

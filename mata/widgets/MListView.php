@@ -16,10 +16,11 @@ class MListView extends CListView {
 
     public $template = "{sorter}<div class='list-view standard-list'>{items}</div>{pager}";
     public $pager = array('class' => 'mata.widgets.pagers.InfinitePager');
-    
+
     public function run() {
         $this->renderFilter();
         $this->renderListSelection();
+
         parent::run();
     }
 
@@ -34,12 +35,12 @@ class MListView extends CListView {
         ajaxUpdateTimeout = setTimeout(function () {
             $.fn.yiiListView.update(
                 '$this->id',
-                {data: ajaxRequest,  url: '/user/admin'}
+                {data: ajaxRequest,  url: '$this->ajaxUrl'}
             )
         }, 300);
     });"
         );
-        echo CHtml::textField("filter", (isset($_GET[$renderFilterId])) ? $_GET[$renderFilterId] : '', array('id' => $renderFilterId, "placeholder" => "Search"));
+        echo CHtml::textField("filter", (isset($_GET[$renderFilterId])) ? $_GET[$renderFilterId] : '', array('id' => $renderFilterId, "placeholder" => "Search", "class" => "filter"));
     }
 
     private function renderListSelection() {
@@ -60,6 +61,16 @@ class MListView extends CListView {
     </div>
 </div>
 EOT;
+    }
+
+    public function registerClientScript() {
+        parent::registerClientScript();
+
+        $this->baseScriptUrl = Yii::app()->getAssetManager()->publish(Yii::getPathOfAlias('mata.widgets.assets')) . '/listview';
+
+        $cs = Yii::app()->getClientScript();
+        $cs->registerScriptFile($this->baseScriptUrl . '/mlistview.js', CClientScript::POS_END);
+      //  $cs->registerScript(__CLASS__.'#'.$id,"jQuery('#$id').yiiListView($options);");
     }
 
 }

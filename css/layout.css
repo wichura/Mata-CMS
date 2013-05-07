@@ -52,6 +52,10 @@ hr {
     opacity: 0;
 }
 
+.dialog-box h2 {
+    margin: 0 1px
+}
+
 .screen-overlay {
     position: fixed;
     left: 0;
@@ -102,6 +106,19 @@ hr {
 
 .multioption-element.active {
     opacity: 1;
+}
+
+
+.multioption-list .multioption-element {
+    float: none;
+    height: auto;
+    margin: 5px 1px;
+    width: 430px;
+    text-align: left;
+}
+
+.multioption-list .multioption-element a {
+    line-height: normal;
 }
 
 input, select, option, button, .btn, input{
@@ -330,6 +347,10 @@ img.avatar {
     overflow: hidden;
 }
 
+.list-view .items {
+    margin-top: 15px
+}
+
 .list-view-item {
     display: block;
     margin-bottom: 40px;
@@ -357,7 +378,7 @@ img.avatar {
 }
 
 .nav-buttons  {
-    top: 30px;
+    top: 34px;
     right: 20px;
 }
 
@@ -386,13 +407,12 @@ img.avatar {
 #cms-form-content .list-view .sorter, #cms-form-content .items .empty {
     margin-top: 5px;
     display: block;
-    margin-bottom: 15px;
 }
 
 .list-selection {
     cursor: default;
-    position: absolute;
-    top: 20px;
+    position: fixed;
+    top: 10px;
     left: 50%; 
     width: 350px;
     opacity: 0;
@@ -463,4 +483,16 @@ img.avatar {
 
 .errorSummary li, .errorMessage {
     color: red;
+}
+
+p.note {
+    margin: 10px 0;
+}
+
+#cms-form-content input, #cms-form-content select {
+    max-width: 440px;
+}
+
+#cms-form-content input.filter {
+    max-width: 100%;
 }
