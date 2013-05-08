@@ -1,7 +1,5 @@
 <h1>Dashboard</h1>
 
-
-
 <?php
 $this->widget('zii.widgets.CListView', array(
     'dataProvider' => Yii::app()->eventLog->getModel()->search(),

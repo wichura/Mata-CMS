@@ -18,6 +18,6 @@
         </div>
     </a>
     <div class='actions hidden'>
-        <a class='delete' href='admin/delete/id/<?php echo $data->getPrimaryKey() ?>'>&nbsp;</a>
+        <a class='delete' href='project/delete/id/<?php echo $data->getPrimaryKey() ?>'>&nbsp;</a>
     </div>
 </div>

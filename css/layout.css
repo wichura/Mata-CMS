@@ -92,7 +92,7 @@ hr {
     float: left;
     -moz-border-radius: 3px;
     margin: 1px;
-    background: #222;
+    background: #444;
     text-align: center;
     border-radius: 3px;
     overflow: hidden;
@@ -317,7 +317,6 @@ ul.horizontal li:last-child {
 
 #content-container {
     margin-left: 100px;
-    padding-left: 30px;
     padding-top: 0px;
     border: 0px;
     width: 890px;

@@ -6,7 +6,7 @@ class ProjectController extends MataCMSController {
      * @return array action filters
      */
     public function filters() {
-        
+
         return parent::filters();
         return array(
 //            'accessControl', // perform access control for CRUD operations
@@ -63,6 +63,9 @@ class ProjectController extends MataCMSController {
             $model->attributes = $_POST['Project'];
             if ($model->save()) {
                 FlashMessage::setStandardModelCreateMessage($model);
+                Yii::app()->eventLog->record(Yii::app()->user->FirstName . " " . Yii::app()->user->LastName . " created a new project " .
+                        $model->Name);
+
                 $this->redirect(array('/project/project'));
             }
         }
@@ -140,6 +143,7 @@ class ProjectController extends MataCMSController {
      */
     public function loadModel($id) {
         $model = Project::model()->findByPk($id);
+        
         if ($model === null)
             throw new CHttpException(404, 'The requested page does not exist.');
         return $model;
@@ -154,6 +158,15 @@ class ProjectController extends MataCMSController {
             echo CActiveForm::validate($model);
             Yii::app()->end();
         }
+    }
+
+    public function actionGetVersions() {
+            $model = $this->loadModel(Yii::app()->request->getParam("id"));
+            
+            
+            $this->renderPartial("mata.views.versions._versions", array(
+                "versions" => $model->getAllVersions()
+            ));
     }
 
 }

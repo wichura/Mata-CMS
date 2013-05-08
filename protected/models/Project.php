@@ -49,7 +49,8 @@ class Project extends MataCMSActiveRecord {
         return array(
             'with' => array(
                 "users" => array(
-                    "joinType" => "INNER JOIN"
+                    "joinType" => "INNER JOIN",
+                    "condition" => "UserId = " . Yii::app()->user->getId()
                 )
             )
         );
@@ -136,9 +137,14 @@ class Project extends MataCMSActiveRecord {
             $criteria->compare("Name", $filter, true, "AND");
             $criteria->compare("Uri", $filter, true, "OR");
         }
+        
+        $criteria->together = true;
 
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
+            "sort" => array(
+                "defaultOrder" => "Name ASC"
+            )
         ));
     }
 

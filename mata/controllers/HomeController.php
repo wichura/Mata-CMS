@@ -15,11 +15,8 @@ class HomeController extends BaseAuthorizedController {
     }
 
     public function actionGetProjectsSelector() {
-        echo $this->renderPartial("_projectsSelector", array(
-            "projects" => Project::model()->findAll(array(
-                "order" => "Name ASC"
-            ))
-        ));
+        
+        $this->widget("mata.widgets.formControllers.projectSelector.ProjectSelector");
     }
 
 }

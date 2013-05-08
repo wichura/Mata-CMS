@@ -27,7 +27,6 @@
 
             container.parent().find(".list-selection a.removeBtn").on("click", function() {
                 $.fn.mListView.delete(container);
-                container.trigger("selection-changed");
             })
 
             container.on("selection-changed", function() {
@@ -83,6 +82,8 @@
                 linkElem.transition({"height": "0px"}, function() {
                     linkElem.remove()
                 })
+                
+                container.trigger("selection-changed");
             })
 
         })

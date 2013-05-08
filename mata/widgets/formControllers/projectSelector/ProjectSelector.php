@@ -19,7 +19,9 @@ class ProjectSelector extends BaseWidget {
     public function init() {
 
         if ($this->projects == NULL)
-            $this->projects = Project::model()->findAll();
+            $this->projects = Project::model()->findAll(array(
+                "order" => "Name ASC"
+            ));
 
         if ($this->activeProjects != null) {
 
