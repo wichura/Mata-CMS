@@ -52,10 +52,10 @@ class MListView extends CListView {
     <h4>Selection</h4>
     <p class="label"></p>
     <div class="actions">
-        <a onclick="$.fn.selection('delete')"  href="javascript:void(0)">
+        <a class='removeBtn'  href="javascript:void(0)">
             <img src="/images/layout/icons/trash-icon.png" />
         </a>
-        <a onclick="$.fn.selection('cancelSelection')" href="javascript:void(0)">
+        <a class='cancelSelectionBtn' href="javascript:void(0)">
             <img src="/images/layout/icons/stop-icon2.png" />
         </a>
     </div>
@@ -66,11 +66,11 @@ EOT;
     public function registerClientScript() {
         parent::registerClientScript();
 
-        $this->baseScriptUrl = Yii::app()->getAssetManager()->publish(Yii::getPathOfAlias('mata.widgets.assets')) . '/listview';
+        $this->baseScriptUrl = Yii::app()->getAssetManager()->publish(Yii::getPathOfAlias('mata.widgets.assets') . '/listview', false, -1, YII_DEBUG);
 
         $cs = Yii::app()->getClientScript();
         $cs->registerScriptFile($this->baseScriptUrl . '/mlistview.js', CClientScript::POS_END);
-      //  $cs->registerScript(__CLASS__.'#'.$id,"jQuery('#$id').yiiListView($options);");
+        $cs->registerScript(__CLASS__.'#'.$this->id,"jQuery('#$this->id').mListView();");
     }
 
 }

@@ -31,7 +31,6 @@ class InfinitePager extends CBasePager {
         if (($page = $currentPage + 1) <= $this->getPageCount() - 1)
             echo Html::tag("a", array(
                 "href" => $this->createPageUrl($currentPage + 1),
-                "onclick" => "getNextPage(event); return false;",
                 "class" => "btn btn-small"
                     ), "More Results");
     }
