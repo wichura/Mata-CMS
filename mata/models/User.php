@@ -220,5 +220,9 @@ class User extends MataActiveRecord {
     public function getLabel() {
         return $this->profile->FirstName . " " . $this->profile->LastName;
     }
+    
+    public function getSortableAttributes() {
+        return array("username", 'profile.FirstName', 'profile.LastName', 'lastvisit_at');
+    }
 
 }

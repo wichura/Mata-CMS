@@ -91,7 +91,7 @@ class VersionedModelBehavior extends CActiveRecordBehavior {
  * The followings are the available model relations:
  * @property Cmsuser $creatorUser
  */
-class DocumentVersion extends MataCMSActiveRecord {
+class DocumentVersion extends MataActiveRecord {
 
     /**
      * Returns the static model of the specified AR class.

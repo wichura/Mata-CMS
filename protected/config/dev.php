@@ -14,7 +14,7 @@ return array(
     'import' => array(
         'application.models.base.*',
         'application.controllers.*',
-         'application.models.*',
+        'application.models.*',
         'application.components.*',
         'application.helpers.*'
     ),
@@ -27,7 +27,8 @@ return array(
         "touchstone" => array(
             "active" => false
         ),
-        'project'
+        'project',
+        'client'
     ),
     'components' => array(
         'urlManager' => array(

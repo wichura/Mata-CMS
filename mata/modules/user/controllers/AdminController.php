@@ -1,7 +1,8 @@
 <?php
 
-class AdminController extends MataCMSController {
+class AdminController extends MataController {
 
+    public $defaultAction = "admin";
     private $_model;
 
     /**
@@ -225,6 +226,10 @@ class AdminController extends MataCMSController {
                 throw new CHttpException(404, 'The requested page does not exist.');
         }
         return $this->_model;
+    }
+
+    public function getModel() {
+        return User::model();
     }
 
 }

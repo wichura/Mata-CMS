@@ -32,11 +32,6 @@ class Project extends MataCMSActiveRecord {
         return parent::model($className);
     }
     
-    public function behaviors() {
-        return array(
-            "versions" => "mata.behaviors.VersionedModelBehavior"
-        );
-    }
 
     /**
      * @return string the associated database table name
@@ -172,12 +167,13 @@ class Project extends MataCMSActiveRecord {
             
             if ($linking->save() == false)
                 throw new CHttpException("Could not create the linking between the new project and the user due to: " . $linking->getFirstError());
-            
-            
         }
         
-        
         parent::afterSave();
+    }
+
+    public function getSortableAttributes() {
+        return array("Name", "DateCreated");
     }
 
 

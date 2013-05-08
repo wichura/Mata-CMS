@@ -40,6 +40,7 @@
         <h2>Settings</h2>
         <p>Lorem ipsum dolor sit amet, consectuter adupiscig dig.</p>
         <ul>
+            <li><a href='/client/client'><img src="/images/layout/icons/case-icon.png" />Clients</a></li>
             <li><a href='/project/project'><img src="/images/layout/icons/macbook-icon.png" />Projects</a></li>
         </ul>
 
@@ -57,7 +58,7 @@ $this->widget("application.modules.touchstone.widgets.touchstoneWidget.Touchston
 
 
 <script>
-                
+
                 $(window).ready(function() {
                     $("#side-menu-dashboard a").trigger("click");
                     // Requires jQuery!

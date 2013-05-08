@@ -8,7 +8,7 @@
 $this->widget('mata.widgets.MListView', array(
     'dataProvider' => $model->search(),
     "id" => "user-grid",
-    'sortableAttributes' => array("username", 'profile.FirstName', 'profile.LastName', 'lastvisit_at'),
+    'sortableAttributes' => $model->getSortableAttributes(),
     'itemView' => '_view',
 ));
 ?>

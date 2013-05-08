@@ -12,6 +12,12 @@
  */
 class MataCMSActiveRecord extends MataActiveRecord {
 
+    public function behaviors() {
+        return array(
+            "versions" => "mata.behaviors.VersionedModelBehavior"
+        );
+    }
+
     public function beforeValidate() {
         $this->setProjectKey();
         $this->manageCMSUser();
@@ -36,10 +42,13 @@ class MataCMSActiveRecord extends MataActiveRecord {
         }
     }
 
-
     private function manageContentLanguage() {
         if ($this->hasAttribute("ContentLanguage") && $this->ContentLanguage == null)
             $this->ContentLanguage = Yii::app()->getContentLanguage();
+    }
+
+    public function getSortableAttributes() {
+        return array();
     }
 
 }
