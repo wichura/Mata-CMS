@@ -3,7 +3,7 @@
         <div style="margin-right: 10px; width: 70px;" class="column">
             <?php echo Html::gravatar($data->email); ?>
         </div>
-        <div style="width: 755px" class="column">
+        <div style="width: 740px" class="column">
             <h4 class="model-label"><?php echo $data->getLabel() ?></h4>
             <hr />
 

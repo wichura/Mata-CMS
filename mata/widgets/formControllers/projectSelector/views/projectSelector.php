@@ -15,15 +15,3 @@
         <?php endforeach; ?>
     </div>
 </div>
-
-<script>
-    mata.widget.projectSelector = {};
-
-    var container = $("#<?php echo$this->id ?>");
-
-    container.on("click", ".multioption-element", function() {
-        $(this).toggleClass("active");
-        $(this).find("input[type=hidden]").val($(this).hasClass("active") ? 1 : 0)
-    })
-
-</script>

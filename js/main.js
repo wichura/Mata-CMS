@@ -14,4 +14,4 @@ mata.switchProject = function() {
             mata.dialogBox.hide()
         });
     })
-}
+};

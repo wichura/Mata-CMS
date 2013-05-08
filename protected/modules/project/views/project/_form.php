@@ -21,7 +21,7 @@
 
     <div class="row">
         <?php echo $form->labelEx($model,'ProjectTypeId'); ?>
-        <?php echo $form->textField($model,'ProjectTypeId',array('size'=>2,'maxlength'=>2)); ?>
+        <?php echo $form->dropDownList($model, "ProjectTypeId", CHtml::listData(ProjectType::model()->findAll(), "Id", "Name")) ?>
         <?php echo $form->error($model,'ProjectTypeId'); ?>
     </div>
 
