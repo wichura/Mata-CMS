@@ -28,7 +28,10 @@ return array(
             "active" => false
         ),
         'project',
-        'client'
+        'client',
+        'media' => array(
+            "baseMediaPath" => "http://media.icodesign.com/"
+        )
     ),
     'components' => array(
         'urlManager' => array(

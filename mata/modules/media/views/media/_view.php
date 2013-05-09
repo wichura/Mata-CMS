@@ -1,18 +1,25 @@
 <div class="list-view-item">
     <a href="project/update/id/<?php echo $data->getPrimaryKey() ?>">
-        <div style="width: 835px" class="column">
+        <div style="margin-right: 10px; width: 70px;" class="column">
+            <?php echo Html::image($data->getAbsoluteFilePath()); ?>
+        </div>
+        <div style="width: 740px" class="column">
             <h4 class="model-label"><?php echo $data->getLabel() ?></h4>
             <hr />
 
             <ul class="horizontal">
                 <?php
-                echo CHtml::tag("li", array(), $data->getAttributeLabel('DateCreated') . ": " . Date::standardDateFormat($data->DateCreated));
-                ?>
+                foreach ($widget->sortableAttributes as $attribute) {
 
-                <?php
-                if ($data->URI)
-                    echo CHtml::tag("li", array(), CHtml::encode($data->getAttributeLabel('URI')) . ": " . CHtml::encode($data->URI));
-                ?>
+                    $value = $data->$attribute;
+
+                    if (preg_match("/^\d\d\d\d-(\d)?\d-(\d)?\d \d\d:\d\d:\d\d$/", $value))
+                        $value = Date::standardDateFormat($value);
+
+                    if ($value != null)
+                        echo CHtml::tag("li", array(), $data->getAttributeLabel($attribute) . ": " . $value);
+                }
+                ?>      
             </ul>
 
         </div>

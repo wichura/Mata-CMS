@@ -23,7 +23,7 @@
  * The followings are the available model relations:
  * @property Mediafolder $mediaFolder
  */
-class Media extends MataActiveRecord {
+class Media extends MataCMSActiveRecord {
 
     /**
      * Returns the static model of the specified AR class.
@@ -128,4 +128,15 @@ class Media extends MataActiveRecord {
         ));
     }
 
+    public function getLabel() {
+        return $this->Name;
+    }
+    
+    public function getSortableAttributes() {
+        return array("Name", "FilePath", "MimeType");
+    }
+    
+    public function getAbsoluteFilePath() {
+        return Yii::app()->getModule("media")->baseMediaPath . $this->FilePath;
+    }
 }

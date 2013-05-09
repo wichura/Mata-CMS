@@ -9,11 +9,12 @@
                 foreach ($widget->sortableAttributes as $attribute) {
 
                     $value = $data->$attribute;
-                    
+
                     if (preg_match("/^\d\d\d\d-(\d)?\d-(\d)?\d \d\d:\d\d:\d\d$/", $value))
-                            $value = Date::standardDateFormat($value);
-                    
-                    echo CHtml::tag("li", array(), $data->getAttributeLabel($attribute) . ": " . $value);
+                        $value = Date::standardDateFormat($value);
+
+                    if ($value != null)
+                        echo CHtml::tag("li", array(), $data->getAttributeLabel($attribute) . ": " . $value);
                 }
                 ?>                
             </ul>
