@@ -1,0 +1,3 @@
+[submodule "mata/extensions/plupload"]
+	path = mata/extensions/plupload
+	url = git://github.com/wichura/plupload.git
