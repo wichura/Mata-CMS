@@ -12,7 +12,8 @@
  */
 class DashboardController extends MataController {
    
-    
+     public $layout = 'mata.views.layouts.mataModule';
+     
     public function actionIndex() {
         parent::actionIndex();
         

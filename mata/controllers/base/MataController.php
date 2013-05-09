@@ -11,7 +11,7 @@
  * @author wichura
  */
 class MataController extends BaseAuthorizedController {
-     public $layout = 'mata.views.layouts.mataModule';
+     
 }
 
 ?>

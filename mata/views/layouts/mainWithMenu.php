@@ -31,6 +31,7 @@
         <ul>
             <li><a href='/user/admin/update/id/<?php echo $this->user->getId() ?>'><img src="/images/layout/icons/creditcard-icon.png" />Content Blocks</a></li>
             <li><a href='/user/admin'><img src="/images/layout/icons/world-icon.png" />Forms</a></li>
+            
             <li><a href='/user/admin'><img src="/images/layout/icons/world-icon.png" />Posts</a></li>
 
         </ul>
@@ -42,6 +43,7 @@
         <ul>
             <li><a href='/client/client'><img src="/images/layout/icons/case-icon.png" />Clients</a></li>
             <li><a href='/project/project'><img src="/images/layout/icons/macbook-icon.png" />Projects</a></li>
+            <li><a href='/media/media'><img src="/images/layout/icons/image-icon.png" />Media</a></li>
         </ul>
 
     </div>

@@ -1,6 +1,6 @@
 <?php
 
-class RegistrationController extends MataController {
+class RegistrationController extends MataModuleController {
 
     public $defaultAction = 'registration';
 
@@ -76,6 +76,10 @@ class RegistrationController extends MataController {
                 $profile->validate();
         }
         $this->render('/user/registration', array('model' => $model, 'profile' => $profile));
+    }
+
+    public function getModel() {
+        return User::model();
     }
 
 }

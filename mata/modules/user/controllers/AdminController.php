@@ -1,6 +1,6 @@
 <?php
 
-class AdminController extends MataController {
+class AdminController extends MataModuleController {
 
     public $defaultAction = "admin";
     private $_model;

@@ -23,6 +23,9 @@ return array(
             'returnUrl' => "/",
             'captcha' => array('registration' => false)
         ),
+        "media" => array(
+            "class" => "mata.modules.media.MediaModule"
+        )
     ),
     'components' => array(
         'user' => array(
