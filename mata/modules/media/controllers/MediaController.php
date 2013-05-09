@@ -2,6 +2,11 @@
 
 class MediaController extends MataModuleController {
 
+    public function actionUpload() {
+        echo 11;
+    }
+    
+    
     /**
      * Manages all models.
      */

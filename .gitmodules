@@ -1,3 +1,6 @@
 [submodule "mata/extensions/plupload"]
 	path = mata/extensions/plupload
 	url = git://github.com/wichura/plupload.git
+[submodule "mata/modules/media/extensions/yii-plupload"]
+	path = mata/modules/media/extensions/yii-plupload
+	url = https://mwiatr@github.com/wichura/yii-plupload.git
