@@ -173,7 +173,7 @@ class Project extends MataCMSActiveRecord {
     }
 
     public function getSortableAttributes() {
-        return array("Name", "DateCreated");
+        return array("Name", "DateCreated", "URI");
     }
 
 
