@@ -37,12 +37,12 @@ $(function () {
         $('#fileupload').fileupload('option', {
             url: '//jquery-file-upload.appspot.com/',
             maxFileSize: 5000000,
-            acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
+           // acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
             process: [
                 {
                     action: 'load',
-                    fileTypes: /^image\/(gif|jpeg|png)$/,
-                    maxFileSize: 20000000 // 20MB
+              //      fileTypes: /^image\/(gif|jpeg|png)$/,
+                    maxFileSize: 2000000000 // 2000MB
                 },
                 {
                     action: 'resize',

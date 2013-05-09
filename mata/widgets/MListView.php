@@ -66,7 +66,7 @@ EOT;
     public function registerClientScript() {
         parent::registerClientScript();
 
-        $this->baseScriptUrl = Yii::app()->getAssetManager()->publish(Yii::getPathOfAlias('mata.widgets.assets') . '/listview', false, -1, YII_DEBUG);
+        $this->baseScriptUrl = Yii::app()->getAssetManager()->publish(Yii::getPathOfAlias('mata.widgets.assets') . '/listView', false, -1, YII_DEBUG);
 
         $cs = Yii::app()->getClientScript();
         $cs->registerScriptFile($this->baseScriptUrl . '/mlistview.js', CClientScript::POS_END);
