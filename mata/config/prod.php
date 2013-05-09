@@ -22,6 +22,10 @@ return array(
             "tableProfileFields" => "userprofilefield",
             'returnUrl' => "/",
             'captcha' => array('registration' => false)
+        ),
+        "media" => array(
+            "class" => "mata.modules.media.MediaModule",
+            "baseMediaPath" => "http://media.icodesign.com/"
         )
     ),
     'components' => array(
@@ -42,5 +46,14 @@ return array(
             'charset' => 'utf8',
             'enableParamLogging' => true
         ),
+        'clientScript' => array(
+            'packages' => array(
+                'bbq' => array(
+                    'basePath' => "webroot.js.lib",
+                    'js' => array('jquery.ba-bbq.js'),
+                    'coreScriptPosition' => CClientScript::POS_HEAD
+                )
+            )
+        )
     )
 );

@@ -29,9 +29,6 @@ return array(
         ),
         'project',
         'client',
-        'media' => array(
-            "baseMediaPath" => "http://media.icodesign.com/"
-        )
     ),
     'components' => array(
         'urlManager' => array(
@@ -42,6 +39,14 @@ return array(
                 '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
                 '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
             ),
+        ),
+        'db' => array(
+            'connectionString' => 'mysql:host=37.123.117.163;dbname=matacmsnewdesign',
+            'emulatePrepare' => true,
+            'username' => 'matacms',
+            'password' => 'V9gOhicqxwHpY6p',
+            'charset' => 'utf8',
+            'enableParamLogging' => true
         ),
         'log' => array(
             'class' => 'CLogRouter',

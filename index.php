@@ -1,4 +1,5 @@
 <?php
+
 // change the following paths if necessary
 $yii = dirname(__FILE__) . '/yii/framework/yii.php';
 $application = dirname(__FILE__) . "/protected/components/MataWebApplication.php";
@@ -17,4 +18,5 @@ defined('YII_TRACE_LEVEL') or define('YII_TRACE_LEVEL', 3);
 
 require_once($yii);
 require_once($application);
+
 Yii::createApplication("MataWebApplication", $config)->run();
