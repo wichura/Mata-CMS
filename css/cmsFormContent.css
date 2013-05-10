@@ -21,3 +21,11 @@ label {
     margin-top: -15px;
     margin-bottom: 25px;
 }
+
+input, select, textarea{
+    max-width: 440px;
+}
+
+ input.filter {
+    max-width: 100%;
+}

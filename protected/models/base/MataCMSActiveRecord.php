@@ -18,6 +18,17 @@ class MataCMSActiveRecord extends MataActiveRecord {
         );
     }
 
+    public function defaultScope() {
+
+        $scope = array();
+        if ($this->hasAttribute("ProjectKey"))
+            $scope = array(
+                "condition" => "ProjectKey = '" . Yii::app()->user->project->ProjectKey . "'"
+            );
+
+        return $scope;
+    }
+
     public function beforeValidate() {
         $this->setProjectKey();
         $this->manageCMSUser();

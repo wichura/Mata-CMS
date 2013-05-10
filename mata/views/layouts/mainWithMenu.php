@@ -42,6 +42,7 @@
         <p>Lorem ipsum dolor sit amet, consectuter adupiscig dig.</p>
         <ul>
             <li><a href='/client/client'><img src="/images/layout/icons/case-icon.png" />Clients</a></li>
+            <li><a href='/contentBlock/contentBlock'><img src="/images/layout/icons/new-window-icon.png" />Content block</a></li>
             <li><a href='/project/project'><img src="/images/layout/icons/macbook-icon.png" />Projects</a></li>
             <li><a href='/media/media'><img src="/images/layout/icons/image-icon.png" />Media</a></li>
         </ul>

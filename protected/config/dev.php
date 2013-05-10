@@ -29,6 +29,7 @@ return array(
         ),
         'project',
         'client',
+        'contentBlock'
     ),
     'components' => array(
         'urlManager' => array(

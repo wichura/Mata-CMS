@@ -121,7 +121,7 @@ hr {
     line-height: normal;
 }
 
-input, select, option, button, .btn, input{
+input, select, option, button, .btn, input, textarea{
     border: solid 1px rgb(51, 51, 51);
     -moz-border-radius: 3px;
     border-radius: 3px;
@@ -140,6 +140,10 @@ input, select, option, button, .btn, input{
     -moz-box-sizing: border-box;
     box-sizing: border-box;  
     -webkit-appearance:none;
+}
+
+textarea {
+    resize: none;
 }
 
 button, .btn, input[type=submit]{
@@ -254,7 +258,6 @@ ul.horizontal li:last-child {
 
 #side-menu-container  li a {
     display: block;
-    width: 100%;
     height: 100%;
 }
 
@@ -486,12 +489,4 @@ img.avatar {
 
 p.note {
     margin: 10px 0;
-}
-
-#cms-form-content input, #cms-form-content select {
-    max-width: 440px;
-}
-
-#cms-form-content input.filter {
-    max-width: 100%;
 }
