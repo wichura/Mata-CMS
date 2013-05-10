@@ -32,6 +32,9 @@ return array(
         'contentBlock'
     ),
     'components' => array(
+        'user' => array(
+            'class' => 'application.components.WebUser',
+        ),
         'urlManager' => array(
             'urlFormat' => 'path',
             'showScriptName' => false,
