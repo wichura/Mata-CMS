@@ -1,6 +1,6 @@
 <?php
 
-class ClientModule extends CWebModule {
+class ClientModule extends MMataModule {
 
     public function init() {
         // this method is called when the module is being created
@@ -19,6 +19,12 @@ class ClientModule extends CWebModule {
         }
         else
             return false;
+    }
+
+    public function getNav() {
+        return array(
+            "Clients" => "/client/client"
+        );
     }
 
 }

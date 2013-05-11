@@ -1,6 +1,6 @@
 <?php
 
-class ContentBlockModule extends CWebModule {
+class ContentBlockModule extends MMataModule {
 
     public function init() {
         // this method is called when the module is being created
@@ -20,6 +20,12 @@ class ContentBlockModule extends CWebModule {
         }
         else
             return false;
+    }
+
+    public function getNav() {
+        return array(
+            "Content Blocks" => "/contentBlock/contentBlock"
+        );
     }
 
 }
