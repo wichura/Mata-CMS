@@ -27,7 +27,6 @@ return array(
         "touchstone" => array(
             "active" => false
         ),
-        'project',
         'client',
         'contentBlock'
     ),
