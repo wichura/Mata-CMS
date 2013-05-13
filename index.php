@@ -2,7 +2,7 @@
 
 // change the following paths if necessary
 $yii = dirname(__FILE__) . '/yii/framework/yii.php';
-$application = dirname(__FILE__) . "/protected/components/MataWebApplication.php";
+$application = dirname(__FILE__) . "/mata/components/MataWebApplication.php";
 
 if (strripos($_SERVER['SERVER_NAME'], "localhost") == true || strrpos($_SERVER['SERVER_NAME'], ".local") == true) {
     $config = dirname(__FILE__) . '/protected/config/dev.php';

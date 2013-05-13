@@ -32,7 +32,7 @@ return array(
     ),
     'components' => array(
         'user' => array(
-            'class' => 'application.components.WebUser',
+            'class' => 'mata.modules.user.components.WebUser',
         ),
         'urlManager' => array(
             'urlFormat' => 'path',
