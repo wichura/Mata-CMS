@@ -43,7 +43,7 @@ return array(
                 '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
             ),
         ),
-        'db' => array(
+        'matadb' => array(
             'connectionString' => 'mysql:host=37.123.117.163;dbname=matacmsnewdesign',
             'emulatePrepare' => true,
             'username' => 'matacms',
