@@ -8,7 +8,7 @@
  * @property string $Name
  * @property string $Description
  */
-class ProjectType extends MataCMSActiveRecord {
+class ProjectType extends MataActiveRecord {
 
     /**
      * Returns the static model of the specified AR class.

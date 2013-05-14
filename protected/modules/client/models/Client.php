@@ -7,7 +7,7 @@
  * @property string $Id
  * @property string $Name
  */
-class Client extends MataCMSActiveRecord {
+class Client extends MataActiveRecord {
 
     /**
      * Returns the static model of the specified AR class.

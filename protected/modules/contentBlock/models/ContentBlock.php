@@ -21,7 +21,7 @@
  * @property Cmsuser $modifierUser
  * @property Project $projectKey
  */
-class ContentBlock extends MataCMSActiveRecord {
+class ContentBlock extends MataActiveRecord {
 
     /**
      * Returns the static model of the specified AR class.
