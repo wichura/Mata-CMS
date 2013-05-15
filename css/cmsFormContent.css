@@ -1,0 +1,48 @@
+h1 {
+    margin-bottom: 20px;
+}
+
+label {
+    margin-bottom: 2px;
+    display: block;
+}
+
+.row {
+    margin-bottom: 15px;
+}
+
+#cms-form-content {
+    padding: 20px;
+    padding-left: 50px;
+    padding-bottom: 50px;
+}
+
+.versions {
+    margin-top: -15px;
+    margin-bottom: 25px;
+}
+
+input, select, textarea{
+    max-width: 593px;
+}
+
+.redactor_box {
+    max-width:591px;
+}
+
+.redactor_toolbar {
+    padding-right: 3px !important;
+}
+
+.redactor_box_fullscreen {
+    max-width: none;
+    border-left: none;
+    border-top: none;
+    border-bottom: none;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+}
+
+input.filter {
+    max-width: 100%;
+}
