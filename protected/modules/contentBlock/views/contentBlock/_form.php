@@ -25,7 +25,19 @@
 
     <div class="row">
         <?php echo $form->labelEx($model, 'Text'); ?>
-        <?php echo $form->textArea($model, 'Text'); ?>
+
+        <?php
+        
+        $this->widget('mata.widgets.imperavi-redactor.ImperaviRedactorWidget', array(
+            // you can either use it for model attribute
+            'model' => $model,
+            'attribute' => 'Text',
+            'options' => array(
+                "css" => ProjectSetting::model()->findAllValuesByKey(DbConfigurableHTML::constructSettingKey($model, "Text", "contentscss"))
+            )
+        ));
+        ?>
+
         <?php echo $form->error($model, 'Text'); ?>
     </div>
 
@@ -34,14 +46,6 @@
         <?php echo $form->textField($model, 'Region'); ?>
         <?php echo $form->error($model, 'Region'); ?>
     </div>
-
-
-    <div class="row">
-        <?php echo $form->labelEx($model, 'Meta'); ?>
-        <?php echo $form->textField($model, 'Meta'); ?>
-        <?php echo $form->error($model, 'Meta'); ?>
-    </div>
-
 
     <div class="row buttons">
         <?php echo CHtml::submitButton('Submit'); ?>

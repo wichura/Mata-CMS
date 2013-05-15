@@ -7,8 +7,8 @@ class ContentBlockModule extends MMataModule {
         // you may place code here to customize the module or the application
         // import the module-level models and components
         $this->setImport(array(
-            'contentBlock.models.*',
-            'contentBlock.components.*',
+            'contentblock.models.*',
+            'contentblock.components.*',
         ));
     }
 
@@ -24,7 +24,7 @@ class ContentBlockModule extends MMataModule {
 
     public function getNav() {
         return array(
-            "Content Blocks" => "/contentBlock/contentBlock"
+            "Content Blocks" => "/contentblock/contentblock"
         );
     }
 

@@ -28,7 +28,7 @@ return array(
             "active" => false
         ),
         'client',
-        'contentBlock'
+        'contentblock'
     ),
     'components' => array(
         'user' => array(
