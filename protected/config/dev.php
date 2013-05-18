@@ -28,7 +28,9 @@ return array(
             "active" => false
         ),
         'client',
-        'contentblock'
+        'contentblock' => array(
+            "class" => "application.modules.contentblock.ContentBlockModule"
+        )
     ),
     'components' => array(
         'user' => array(
