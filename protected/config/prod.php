@@ -23,7 +23,10 @@ return array(
             "active" => true
         ),
         'project',
-        'client'
+        'client',
+        'contentblock' => array(
+            "class" => "application.modules.contentblock.ContentBlockModule"
+        )
     ),
     'components' => array(
         'urlManager' => array(
@@ -35,7 +38,7 @@ return array(
                 '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
             ),
         ),
-        'db' => array(
+        'matadb' => array(
             'connectionString' => 'mysql:host=37.123.117.162;dbname=matacms',
             'emulatePrepare' => true,
             'username' => 'matacms',
