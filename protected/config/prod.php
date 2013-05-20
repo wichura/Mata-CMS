@@ -22,7 +22,6 @@ return array(
         "touchstone" => array(
             "active" => true
         ),
-        'project',
         'client',
         'contentblock' => array(
             "class" => "application.modules.contentblock.ContentBlockModule"
