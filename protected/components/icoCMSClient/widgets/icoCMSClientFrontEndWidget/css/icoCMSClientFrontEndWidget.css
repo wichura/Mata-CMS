@@ -1,0 +1,342 @@
+body {
+    padding-top: 60px !important;
+}
+
+#icoCMSClientFrontEndHeader, 
+#icoCMSClientFrontEndHeader a, 
+#icoCMSClientFrontEndHeader:visited, 
+#icoCMSClientFrontEndHeader a:active {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif !important;
+        font-size: 13px;
+}
+
+#icoCMSClientFrontEndHeader a:hover {
+    color: #FFF;
+}
+#icoCMSClientFrontEndHeader{
+
+    margin-bottom: 18px;
+    overflow: visible;
+    z-index: 90001;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+
+#icoCMSClientFrontEndHeader a, #icoCMSClientFrontEndHeader a:visited, #icoCMSClientFrontEndHeader a:active {
+    color: #999999;
+}
+
+#icoCMSClientFrontEndHeader .navbar-inner {
+    background-color: #2C2C2C;
+    background-image: -moz-linear-gradient(center top , #333333, #222222);
+    background-repeat: repeat-x;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), 0 -1px 0 rgba(0, 0, 0, 0.1) inset;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#icoCMSClientFrontEndHeader .navbar-inner {
+    border-radius: 0 0 0 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+#icoCMSClientFrontEndHeader .container-fluid:after {
+    clear: both;
+}
+
+#icoCMSClientFrontEndHeader .container-fluid:before, .container-fluid:after {
+    content: "";
+    display: table;
+}
+
+#icoCMSClientFrontEndHeader .container-fluid:before, .container-fluid:after {
+    content: "";
+    display: table;
+}
+
+#icoCMSClientFrontEndHeader .container-fluid, .row-fluid {
+    height: 100%;
+}
+
+#icoCMSClientFrontEndHeader .container-fluid {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#icoCMSClientFrontEndHeader #topMenu {
+    padding-top: 0px;
+}
+
+#icoCMSClientFrontEndHeader .brand {
+    color: #FFFFFF;
+    display: block;
+    float: left;
+    font-size: 20px;
+    font-weight: 200;
+    line-height: 1;
+    margin-left: -20px;
+    padding: 8px 20px 12px;
+}
+
+#icoCMSClientFrontEndHeader .nav {
+    display: block;
+    float: left;
+    left: 0;
+    margin: 0 10px 0 0;
+    position: relative;
+}
+
+#icoCMSClientFrontEndHeader .nav {
+    list-style: none outside none;
+    margin-left: 0;
+}
+
+#icoCMSClientFrontEndHeader .navbar-text {
+    color: #999999;
+    line-height: 40px;
+    margin-bottom: 0;
+}
+
+
+#icoCMSClientFrontEndHeader .pull-right {
+    float: right;
+}
+
+#icoCMSClientFrontEndHeader p {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    margin: 0 0 9px;
+}
+
+#icoCMSClientFrontEndHeader .nav > li {
+    display: block;
+    float: left;
+}
+
+#icoCMSClientFrontEndHeader li {
+    line-height: 18px;
+}
+
+#icoCMSClientFrontEndHeader .nav .active > a,#icoCMSClientFrontEndHeader .nav .active > a:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+#icoCMSClientFrontEndHeader  .nav > li {
+    color: #999999;
+    line-height: 19px;
+    padding: 10px 10px 11px;
+    text-decoration: none;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+
+#icoCMSClientFrontEndHeader .nav > li  {
+    display: block;
+}
+
+#icoCMSClientFrontEndHeader .nav > li:hover {
+    color: #FFF;
+    cursor: pointer;
+}
+
+.icoCMSEditableSection {
+    position: relative;
+}
+
+.icoCMSEditableSectionMarker {
+    z-index: 89999;
+    position: absolute;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    transition:all 0.3s ease-in-out;	
+    -moz-transition: all 0.3s ease-in-out 0s;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.icoCMSEditableSectionMarker:hover {
+    opacity: 1
+}
+
+.modal {
+    background-clip: padding-box;
+    background-color: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 6px 6px 6px 6px;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+    left: 30%;
+    top: 10%;
+    overflow: auto;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    position: fixed;
+    width: 80%;
+    height: 80%;
+    z-index: 90000;
+}
+
+.modal-backdrop {
+    background-color: #000000;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1040;
+    opacity: 0.8
+}
+
+.icoCMSClientFrontEndClose {
+    color: #000000;
+    float: right;
+    font-size: 20px;
+    margin-top: 2px;
+    cursor: pointer;
+    font-weight: bold;
+    line-height: 18px;
+    opacity: 0.2;
+    text-shadow: 0 1px 0 #FFFFFF;
+}
+.modal-header {
+    border-bottom: 1px solid #EEEEEE;
+    padding: 9px 15px;
+    max-height: 12%;
+    direction: ltr;
+}
+
+h3 {
+    font-size: 18px;
+    line-height: 27px;
+}
+
+.modal-body iframe {
+    width: 100%;
+    height: 100%;
+    border: none !important;
+    outline: none;
+    background: #FFF;
+}
+
+.modal-body {
+    height: 92%;
+    max-height: 10000px;
+}
+
+#icoCMSEditableSectionSideNavigator {
+    height: 85%;
+    width: 20px;
+    position: fixed;
+    left: -40px;
+    top: 7.5%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), 0 -1px 0 rgba(0, 0, 0, 0.1) inset;
+    opacity: 0.8;
+}
+
+#icoCMSEditableSectionSideNavigator .viewportPosition {
+    width: 100%; 
+    height: 20px;
+    top: 10px;
+    left: 0px;
+    background: #ebebeb;
+}
+
+#icoCMSEditableSectionSideNavigator div {
+    position: absolute;
+}
+
+#icoCMSEditableSectionSideNavigator .marker {
+    height: 10px;
+    box-shadow: 0 1px 3px rgba(255, 255, 255, 1), 0 -1px 0 rgba(255, 255, 255, 1) inset;
+    width: 100%;
+    background: orange;
+    cursor: pointer;
+}
+
+.tooltip {
+    display: block;
+    font-size: 11px;
+    opacity: 0;
+    padding: 5px;
+    position: absolute;
+    visibility: visible;
+    z-index: 1020;
+}
+.tooltip.in {
+    opacity: 0.8;
+}
+.tooltip.top {
+    margin-top: -2px;
+}
+.tooltip.right {
+    margin-left: 2px;
+}
+.tooltip.bottom {
+    margin-top: 2px;
+}
+.tooltip.left {
+    margin-left: -2px;
+}
+.tooltip.top .tooltip-arrow {
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #000000;
+    bottom: 0;
+    left: 50%;
+    margin-left: -5px;
+}
+.tooltip.left .tooltip-arrow {
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid #000000;
+    border-top: 5px solid transparent;
+    margin-top: -5px;
+    right: 0;
+    top: 50%;
+}
+.tooltip.bottom .tooltip-arrow {
+    border-bottom: 5px solid #000000;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    left: 50%;
+    margin-left: -5px;
+    top: 0;
+}
+.tooltip.right .tooltip-arrow {
+    border-bottom: 5px solid transparent;
+    border-right: 5px solid #000000;
+    border-top: 5px solid transparent;
+    left: 0;
+    margin-top: -5px;
+    top: 50%;
+}
+.tooltip-inner {
+    background-color: #000000;
+    border-radius: 4px 4px 4px 4px;
+    color: #FFFFFF;
+    max-width: 200px;
+    padding: 3px 8px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.tooltip-arrow {
+    height: 0;
+    position: absolute;
+    width: 0;
+}
+
+#icoCMSClientFrontEndHeader #topMenu li.active {
+    background-color: #5BB75B;
+    background-image: -moz-linear-gradient(center top , #62C462, #51A351);
+    background-repeat: repeat-x;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    color: #FFF;
+}
+
+#previewModeBtn {
+    width: 83px;
+    text-align: center;
+}

@@ -1,0 +1,130 @@
+.row.centered {
+    text-align: center;
+}
+
+#header {
+    background: url(/images/header.jpg) no-repeat;
+    min-height: 598px;
+    position: relative;
+    overflow: hidden;
+}
+#header h2, #header p {
+    color: #FFF;
+}
+
+#header .five.columns {
+    width: 400px;
+}
+
+#header img {
+    z-index: -1;
+    position: absolute;
+    height: 598px;
+}
+
+#header .btn {
+    height: 40px;
+    line-height: 39px;
+}
+
+#header .btn {
+    font-weight: normal;
+}
+
+#header .btn:hover {
+    background: #FFF;
+}
+
+#header .btn:hover a {
+    color: $header-link-color !important;
+    text-shadow: none;
+}
+
+#header .btn {
+    background: none;
+    border: solid 2px #FFF;
+    box-shadow: none;
+}
+
+#header h1 {
+    margin-top: 40px;
+    margin-bottom: 0px;
+    font-size: 50px;
+    @include replace-text("/images/logo.png", 0, 0)
+}
+
+#header p {
+    margin-right: 11px;
+}
+
+#main > .row {
+    padding: 80px 0;
+}
+
+.row.gray {
+    background: #f1f1f1;
+}
+#features h4 {
+    margin-top: 35px;
+}
+
+#features .columns > * {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+#features h3 {
+    margin-bottom: 80px;
+}
+
+#features .img-container {
+    height: 150px;
+}
+#features .four {   
+    margin-bottom: 50px !important; 
+}
+
+#features .four {   
+    margin-bottom: 50px !important; 
+}
+
+#who-is-using-mata {
+    text-align: center;
+}
+
+
+#footer {
+    background: #252525;
+}
+
+#footer h4, #footer a, #footer p {
+    color: #FFF;
+    font-size: 14px;
+}
+
+
+
+@include respond(all-phones) {
+    #who-is-using-mata .two.columns {
+        margin-top: 50px;
+    }
+
+    .columns p, .columns h4, .columns h1, .columns h2, .columns .btn {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    #header {
+        background-position: 0% ;
+    }
+
+    #header .five.columns p {
+        font-size: $med;
+    }
+
+    #header .five.columns h2 {
+        font-size: 2rem;
+    }
+    #header .five.columns {
+        width: 100% !important;
+    }
+}
