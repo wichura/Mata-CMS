@@ -19,13 +19,6 @@ return array(
         'application.helpers.*'
     ),
     'modules' => array(
-        "touchstone" => array(
-            "active" => true
-        ),
-        'client',
-        'contentblock' => array(
-            "class" => "application.modules.contentblock.ContentBlockModule"
-        )
     ),
     'components' => array(
         'urlManager' => array(
@@ -36,14 +29,6 @@ return array(
                 '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
                 '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
             ),
-        ),
-        'matadb' => array(
-            'connectionString' => 'mysql:host=37.123.117.162;dbname=matacms',
-            'emulatePrepare' => true,
-            'username' => 'matacms',
-            'password' => 'V9gOhicqxwHpY6p',
-            'charset' => 'utf8',
-            'enableParamLogging' => true
         ),
         'log' => array(
             'class' => 'CLogRouter',
