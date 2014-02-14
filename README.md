@@ -18,15 +18,14 @@ This section describes how to install Mata in your existing Yii Project:
 - clone Mata to the root of your project by issuing the command
 
 ```
-git clone https://github.com/qi-interactive/Mata.git mata
+git clone --recursive https://github.com/wichura/Mata-CMS.git Mata-CMS
 ```
 
 - execute in Terminal:
 
 ```
- cd mata && php yiic mata install
- ```
-
+cd Mata-CMS/mata && php yiic mata install
+```
 
 - Follow the steps in the installation
 
