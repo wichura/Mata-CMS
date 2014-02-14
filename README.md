@@ -1,4 +1,47 @@
-mata
+MATA CMS
 ====
 
 Mata CMS - generic framework for project-driven web applications
+
+
+mataframework.com
+=================
+
+Website and module repository for MATA
+
+
+Mata installation
+================= 
+
+This section describes how to install Mata in your existing Yii Project: 
+
+- clone Mata to the root of your project by issuing the command
+
+```
+git clone https://github.com/qi-interactive/Mata.git mata
+```
+
+- execute in Terminal:
+
+```
+ cd mata && php yiic mata install
+ ```
+
+
+- Follow the steps in the installation
+
+
+- make sure Yii creates a mata application by adding the following to the top of index.php: 
+
+```
+$application = dirname(__FILE__) . "/mata/components/MataWebApplication.php";
+```
+
+and replacing the last line with: 
+
+```
+require_once($mata);
+Yii::createApplication("MataWebApplication", $config)->run();
+```
+
+-- You're done!
