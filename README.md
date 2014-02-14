@@ -4,12 +4,6 @@ MATA CMS
 Mata CMS - generic framework for project-driven web applications
 
 
-mataframework.com
-=================
-
-Website and module repository for MATA
-
-
 Mata installation
 ================= 
 
